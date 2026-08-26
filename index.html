@@ -3,193 +3,216 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sebastián · Desarrollador Full Stack</title>
+<title>Sebastian Ospina · Desarrollador Full Stack</title>
 
 <!--
   ===================================================================
-  CONFIGURACIÓN RÁPIDA — cambia estos datos y el sitio queda listo:
-    1. NOMBRE     -> busca "Sebastián" y pon tu nombre completo
-    2. TELÉFONO   -> busca "573000000000" (WhatsApp) y "+57 300 000 0000"
-    3. LINKEDIN   -> busca "linkedin.com/in/tu-usuario"
-    4. PROYECTOS  -> sección PROYECTOS, cada <article class="project">
-    5. CV         -> pon tu cv.pdf en la raíz del repositorio
-  Publicado en: https://sog77.github.io/Mi-portafolio/
+  PORTAFOLIO — Sebastian Ospina Guevara (SOG77)
+  Sitio estático. Publicado en: https://sog77.github.io/Mi-portafolio/
+  Para agregar un proyecto, copia un bloque <article class="quest">
+  o <article class="side"> en la sección PROYECTOS.
   ===================================================================
 -->
 
-<meta name="description" content="Sebastián (SOG77) — Desarrollador Full Stack. Java, Spring Boot, React, PostgreSQL y Docker. Construyo aplicaciones web completas, del backend a la interfaz.">
-<meta name="author" content="Sebastián / SOG77">
-<meta name="theme-color" content="#07070c">
+<meta name="description" content="Sebastian Ospina Guevara — Desarrollador Full Stack. Java, Spring Boot, React, PostgreSQL y Docker. Construyo aplicaciones web completas, del backend a la interfaz.">
+<meta name="author" content="Sebastian Ospina Guevara">
+<meta name="theme-color" content="#0b0b0c">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://sog77.github.io/Mi-portafolio/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sog77.github.io/Mi-portafolio/">
-<meta property="og:title" content="Sebastián · Desarrollador Full Stack">
-<meta property="og:description" content="Portafolio de desarrollo Full Stack: Java Spring Boot, React, PostgreSQL y Docker.">
+<meta property="og:title" content="Sebastian Ospina · Desarrollador Full Stack">
+<meta property="og:description" content="Portafolio de desarrollo Full Stack: Java, Spring Boot, React, PostgreSQL y Docker.">
 <meta property="og:image" content="https://sog77.github.io/Mi-portafolio/og.svg">
 <meta property="og:locale" content="es_CO">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <a class="skip" href="#main">Saltar al contenido</a>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
 
-<!-- ============================ NAV ============================ -->
-<header class="nav" id="nav">
-  <div class="nav-inner">
+<!-- ============================ HUD / NAV ============================ -->
+<header class="hud" id="nav">
+  <div class="hud-inner">
     <a class="logo" href="#inicio" aria-label="Inicio">
-      <span class="logo-mark">S</span>
-      <span class="logo-text">SOG<span class="grad">77</span></span>
+      <span class="logo-mark" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span class="logo-text">SOG<span class="accent">77</span></span>
     </a>
 
-    <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+    <nav class="hud-links" id="navLinks" aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
-      <a href="#stack">Stack</a>
+      <a href="#inventario">Habilidades</a>
       <a href="#proyectos">Proyectos</a>
-      <a href="#sobre-mi">Sobre mí</a>
-      <a href="#contacto" class="nav-cta">Contáctame</a>
+      <a href="#perfil">Perfil</a>
+      <a href="#contacto" class="hud-cta">Contacto <span aria-hidden="true">▸</span></a>
     </nav>
 
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
-  <div class="nav-progress" id="progress"></div>
+  <div class="hud-progress"><i id="progress"></i></div>
 </header>
 
 <main id="main">
 
 <!-- ============================ HERO ============================ -->
 <section class="hero" id="inicio">
-  <div class="aurora" aria-hidden="true">
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-    <div class="blob b3"></div>
-  </div>
-  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="dots" aria-hidden="true"></div>
+  <div class="glowfield" aria-hidden="true"><span></span><span></span></div>
 
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="badge"><span class="dot"></span> Disponible para nuevos proyectos</p>
+      <p class="tag"><span class="blip"></span> PLAYER 01 · DISPONIBLE</p>
 
-      <h1>
-        Hola, soy <span class="grad">Sebastián</span>.<br>
-        Construyo software
-        <span class="type-wrap">de <span class="typed" id="typed" aria-live="polite"></span><span class="caret" aria-hidden="true"></span></span>
-      </h1>
+      <h1>Sebastian<br><span class="outline">Ospina</span></h1>
+
+      <p class="class-line">
+        <span class="key">CLASE</span>
+        <span class="typed" id="typed" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+      </p>
 
       <p class="lead">
-        Desarrollador <strong>Full Stack</strong>. Trabajo el ciclo completo: modelo la base de
-        datos, levanto la API con Java y Spring Boot, y construyo la interfaz en React
-        hasta que se siente rápida y obvia de usar.
+        Trabajo el ciclo completo de una aplicación: modelo la base de datos, levanto la API
+        con <strong>Java</strong> y <strong>Spring Boot</strong>, y construyo la interfaz en
+        <strong>React</strong> hasta que se siente rápida y obvia de usar.
       </p>
 
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#proyectos">Ver proyectos <span aria-hidden="true">→</span></a>
-        <a class="btn btn-ghost" href="#contacto">Hablemos</a>
+        <a class="btn btn-primary" href="#proyectos">
+          <span class="btn-ico" aria-hidden="true">▶</span> Ver proyectos
+        </a>
+        <a class="btn btn-ghost" href="#contacto">Contactar</a>
       </div>
 
-      <ul class="hero-stats">
-        <li><strong data-count="9">0</strong><span>Proyectos<br>en GitHub</span></li>
-        <li><strong data-count="8">0</strong><span>Tecnologías<br>en uso</span></li>
-        <li><strong data-count="100" data-suffix="%">0</strong><span>Código<br>propio</span></li>
+      <ul class="hud-stats">
+        <li><span class="key">Proyectos</span><strong data-count="9">0</strong></li>
+        <li><span class="key">Stack</span><strong data-count="8">0</strong></li>
+        <li><span class="key">Entrega</span><strong data-count="100" data-suffix="%">0</strong></li>
       </ul>
     </div>
 
+    <!-- ---- Ficha de personaje ---- -->
     <div class="hero-visual">
-      <div class="window tilt">
-        <div class="window-bar">
-          <i class="d r"></i><i class="d y"></i><i class="d g"></i>
-          <span class="window-title">Developer.java</span>
+      <div class="crt">
+        <div class="crt-bar">
+          <span class="crt-title">character_select</span>
+          <span class="crt-dots" aria-hidden="true"><i></i><i></i><i></i></span>
         </div>
-<pre class="code"><code><span class="ln">1</span><span class="k">public class</span> <span class="c">Developer</span> {
-<span class="ln">2</span>  <span class="k">private final</span> String name = <span class="s">"Sebastián"</span>;
-<span class="ln">3</span>  <span class="k">private final</span> String role = <span class="s">"Full Stack"</span>;
-<span class="ln">4</span>
-<span class="ln">5</span>  <span class="a">@Override</span>
-<span class="ln">6</span>  <span class="k">public</span> Product <span class="f">build</span>(Idea idea) {
-<span class="ln">7</span>    <span class="k">return</span> idea
-<span class="ln">8</span>      .<span class="f">design</span>()
-<span class="ln">9</span>      .<span class="f">code</span>()
-<span class="ln">10</span>     .<span class="f">ship</span>();
-<span class="ln">11</span> }
-<span class="ln">12</span>}</code></pre>
+
+        <div class="card-body">
+          <div class="avatar" aria-hidden="true">
+            <span class="avatar-glyph">S</span>
+            <span class="lvl">LVL<b>07</b></span>
+          </div>
+
+          <div class="card-id">
+            <p class="key">NOMBRE</p>
+            <p class="val">SEBASTIAN OSPINA</p>
+            <p class="key">ROL</p>
+            <p class="val accent">FULL STACK DEV</p>
+            <p class="key">BASE</p>
+            <p class="val">COLOMBIA · REMOTO</p>
+          </div>
+
+          <div class="card-bars">
+            <div class="statline"><span>BACKEND</span><div class="xp"><i data-level="85"></i></div><b>85</b></div>
+            <div class="statline"><span>FRONTEND</span><div class="xp"><i data-level="80"></i></div><b>80</b></div>
+            <div class="statline"><span>DATOS</span><div class="xp"><i data-level="75"></i></div><b>75</b></div>
+            <div class="statline"><span>DEVOPS</span><div class="xp"><i data-level="70"></i></div><b>70</b></div>
+          </div>
+
+          <p class="press">PULSA <b>▶</b> PARA CONTINUAR</p>
+        </div>
       </div>
 
-      <div class="float-card fc1">
-        <span class="fc-label">API</span>
-        <b>200 OK</b>
-        <small>/api/v1/users</small>
+      <div class="toast t1">
+        <span class="toast-key">LOGRO DESBLOQUEADO</span>
+        <b>API en producción</b>
       </div>
-      <div class="float-card fc2">
-        <span class="fc-label">DB</span>
-        <b>PostgreSQL</b>
-        <small>schema · migrations</small>
+      <div class="toast t2">
+        <span class="toast-key">+ EXPERIENCIA</span>
+        <b>Spring Boot · React</b>
       </div>
     </div>
   </div>
 
-  <a class="scroll-hint" href="#stack" aria-label="Bajar al siguiente bloque">
+  <a class="scroll-hint" href="#inventario" aria-label="Bajar al siguiente bloque">
     <span aria-hidden="true"></span> scroll
   </a>
 </section>
 
-<!-- ============================ STACK ============================ -->
-<section class="strip" id="stack" aria-label="Tecnologías">
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Java</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>React</span><i>◆</i>
-      <span>JavaScript</span><i>◆</i><span>PostgreSQL</span><i>◆</i><span>Docker</span><i>◆</i>
-      <span>Vite</span><i>◆</i><span>Tailwind</span><i>◆</i><span>JWT</span><i>◆</i>
-      <span>REST APIs</span><i>◆</i><span>Git</span><i>◆</i><span>Swagger</span><i>◆</i>
-      <span>Java</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>React</span><i>◆</i>
-      <span>JavaScript</span><i>◆</i><span>PostgreSQL</span><i>◆</i><span>Docker</span><i>◆</i>
-      <span>Vite</span><i>◆</i><span>Tailwind</span><i>◆</i><span>JWT</span><i>◆</i>
-      <span>REST APIs</span><i>◆</i><span>Git</span><i>◆</i><span>Swagger</span><i>◆</i>
+<!-- ============================ INVENTARIO / STACK ============================ -->
+<section class="strip" id="inventario" aria-label="Habilidades y tecnologías">
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Java</span><i>▪</i><span>Spring Boot</span><i>▪</i><span>React</span><i>▪</i>
+      <span>JavaScript</span><i>▪</i><span>PostgreSQL</span><i>▪</i><span>Docker</span><i>▪</i>
+      <span>Vite</span><i>▪</i><span>Tailwind</span><i>▪</i><span>JWT</span><i>▪</i>
+      <span>REST APIs</span><i>▪</i><span>Git</span><i>▪</i><span>Swagger</span><i>▪</i>
+      <span>Java</span><i>▪</i><span>Spring Boot</span><i>▪</i><span>React</span><i>▪</i>
+      <span>JavaScript</span><i>▪</i><span>PostgreSQL</span><i>▪</i><span>Docker</span><i>▪</i>
+      <span>Vite</span><i>▪</i><span>Tailwind</span><i>▪</i><span>JWT</span><i>▪</i>
+      <span>REST APIs</span><i>▪</i><span>Git</span><i>▪</i><span>Swagger</span><i>▪</i>
     </div>
   </div>
 
-  <div class="wrap stack-grid">
-    <article class="stack-card reveal">
-      <h3><span class="ico">⬡</span> Backend</h3>
-      <p>APIs REST seguras y documentadas, con autenticación por roles y una capa de datos preparada para crecer.</p>
-      <ul class="chips"><li>Java</li><li>Spring Boot</li><li>JWT</li><li>Swagger / OpenAPI</li></ul>
-    </article>
-    <article class="stack-card reveal d1">
-      <h3><span class="ico">◈</span> Frontend</h3>
-      <p>Interfaces limpias y responsivas, con componentes reutilizables y atención real al detalle visual.</p>
-      <ul class="chips"><li>React</li><li>JavaScript</li><li>Vite</li><li>Tailwind CSS</li></ul>
-    </article>
-    <article class="stack-card reveal d2">
-      <h3><span class="ico">▣</span> Datos e infraestructura</h3>
-      <p>Modelado relacional, consultas eficientes y entornos reproducibles con contenedores.</p>
-      <ul class="chips"><li>PostgreSQL</li><li>SQL</li><li>Docker</li><li>Git / GitHub</li></ul>
-    </article>
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow">// Inventario</p>
+      <h2>Equipo con el que <span class="accent">trabajo</span></h2>
+      <p class="section-sub">Las herramientas que uso a diario y para qué las uso realmente.</p>
+    </header>
+
+    <div class="slots">
+      <article class="slot reveal">
+        <span class="rarity">Principal</span>
+        <h3><span class="slot-ico" aria-hidden="true">⌗</span> Backend</h3>
+        <p>APIs REST seguras y documentadas, con autenticación por roles y una capa de datos preparada para crecer.</p>
+        <ul class="chips"><li>Java</li><li>Spring Boot</li><li>JWT</li><li>Swagger</li></ul>
+      </article>
+      <article class="slot reveal d1">
+        <span class="rarity">Principal</span>
+        <h3><span class="slot-ico" aria-hidden="true">◱</span> Frontend</h3>
+        <p>Interfaces limpias y responsivas, con componentes reutilizables y atención real al detalle visual.</p>
+        <ul class="chips"><li>React</li><li>JavaScript</li><li>Vite</li><li>Tailwind</li></ul>
+      </article>
+      <article class="slot reveal d2">
+        <span class="rarity">Soporte</span>
+        <h3><span class="slot-ico" aria-hidden="true">▤</span> Datos e infra</h3>
+        <p>Modelado relacional, consultas eficientes y entornos reproducibles con contenedores.</p>
+        <ul class="chips"><li>PostgreSQL</li><li>SQL</li><li>Docker</li><li>Git</li></ul>
+      </article>
+    </div>
   </div>
 </section>
 
-<!-- ============================ PROYECTOS ============================ -->
+<!-- ============================ PROYECTOS / MISIONES ============================ -->
 <section class="section" id="proyectos">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow">// Trabajo seleccionado</p>
-      <h2>Proyectos que <span class="grad">he construido</span></h2>
-      <p class="section-sub">Cada uno resolvió un problema concreto. Aquí está qué hacen, cómo están hechos y dónde ver el código.</p>
+      <p class="eyebrow">// Registro de misiones</p>
+      <h2>Proyectos <span class="accent">completados</span></h2>
+      <p class="section-sub">Cada uno resolvió un problema concreto. Qué hacen, cómo están hechos y dónde ver el código.</p>
     </header>
 
-    <div class="projects">
+    <div class="quests">
 
-      <!-- ---------- Proyecto 01 (destacado) ---------- -->
-      <article class="project reveal">
-        <div class="project-visual v-dashboard">
-          <span class="ribbon">Destacado</span>
+      <!-- ---------- Misión 01 ---------- -->
+      <article class="quest reveal">
+        <div class="quest-visual">
+          <span class="stamp">Principal</span>
           <div class="mock">
-            <div class="mock-bar"><i></i><i></i><i></i><span>panel corporativo</span></div>
+            <div class="mock-bar"><i></i><i></i><i></i><span>panel_corporativo</span></div>
             <div class="mock-body">
               <aside class="mock-side"><b></b><b></b><b></b><b></b></aside>
               <div class="mock-main">
@@ -208,29 +231,38 @@
           </div>
         </div>
 
-        <div class="project-body">
-          <p class="project-kicker"><span class="num">01</span> Full Stack · Aplicación web</p>
+        <div class="quest-body">
+          <p class="quest-meta">
+            <span class="num">01</span>
+            <span class="sep" aria-hidden="true">/</span>
+            Full Stack · Aplicación web
+            <span class="diff" title="Dificultad">
+              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+            </span>
+          </p>
           <h3>Sistema de Gestión Corporativo</h3>
           <p>Plataforma tipo SaaS para administrar los usuarios de una organización. Backend en
           Spring Boot con autenticación JWT y control de roles <code>ADMIN</code> / <code>USER</code>,
           API documentada con Swagger, y un dashboard en React que consume esos endpoints.
           Todo el entorno corre con Docker y PostgreSQL.</p>
+          <p class="reward"><span class="key">Objetivos</span> Autenticación segura · Roles · Dashboard · Entorno reproducible</p>
           <ul class="chips">
             <li>Java</li><li>Spring Boot</li><li>JWT</li><li>React</li><li>Vite</li><li>Tailwind</li><li>PostgreSQL</li><li>Docker</li>
           </ul>
-          <div class="project-links">
+          <div class="quest-links">
             <a class="lnk" href="https://github.com/SOG77/Gestion-Usuarios" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
 
-      <!-- ---------- Proyecto 02 (destacado) ---------- -->
-      <article class="project reverse reveal">
-        <div class="project-visual v-admin">
+      <!-- ---------- Misión 02 ---------- -->
+      <article class="quest reverse reveal">
+        <div class="quest-visual">
+          <span class="stamp">Principal</span>
           <div class="mock">
-            <div class="mock-bar"><i></i><i></i><i></i><span>ceibal · admin</span></div>
+            <div class="mock-bar"><i></i><i></i><i></i><span>ceibal_admin</span></div>
             <div class="mock-body col">
-              <div class="mock-toolbar"><span class="pill">Buscar</span><span class="pill">Filtrar</span><span class="pill accent">Exportar CSV</span></div>
+              <div class="mock-toolbar"><span class="pill">Buscar</span><span class="pill">Filtrar</span><span class="pill on">Exportar CSV</span></div>
               <div class="mock-rows">
                 <div><b></b><em></em></div><div><b></b><em></em></div>
                 <div><b></b><em></em></div><div><b></b><em></em></div>
@@ -239,94 +271,102 @@
           </div>
         </div>
 
-        <div class="project-body">
-          <p class="project-kicker"><span class="num">02</span> Frontend · Panel de administración</p>
+        <div class="quest-body">
+          <p class="quest-meta">
+            <span class="num">02</span>
+            <span class="sep" aria-hidden="true">/</span>
+            Frontend · Panel de administración
+            <span class="diff" title="Dificultad">
+              <i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+            </span>
+          </p>
           <h3>Ceibal — Panel de Administración</h3>
           <p>Panel ligero para gestión educativa: crear, buscar, filtrar y eliminar usuarios,
           métricas rápidas de reportes y formularios con validación. Incluye exportación
           avanzada a CSV/JSON, modo oscuro, atajos de teclado y generación automática de
           avatares con assets optimizados en WebP.</p>
+          <p class="reward"><span class="key">Objetivos</span> CRUD completo · Exportación · Modo oscuro · Atajos</p>
           <ul class="chips">
             <li>React</li><li>JavaScript</li><li>HTML5</li><li>CSS3</li><li>localStorage</li><li>Export CSV/JSON</li>
           </ul>
-          <div class="project-links">
+          <div class="quest-links">
             <a class="lnk" href="https://github.com/SOG77/Ceibal-demo" target="_blank" rel="noopener">Ver código <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </article>
 
-      <!-- ---------- Proyectos secundarios ---------- -->
-      <div class="project-mini-grid">
+      <!-- ---------- Misiones secundarias ---------- -->
+      <p class="side-title reveal"><span>Misiones secundarias</span></p>
 
-        <article class="mini reveal">
-          <span class="mini-num">03</span>
+      <div class="sides">
+        <article class="side reveal">
+          <span class="side-num">03</span>
           <h4>Sistema con Base de Datos</h4>
           <p>Aplicación Java conectada a una base de datos relacional: modelado de entidades, consultas SQL y persistencia desde código.</p>
           <ul class="chips sm"><li>Java</li><li>SQL</li><li>JDBC</li></ul>
           <a class="lnk" href="https://github.com/SOG77/baseDatosParcial" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="mini reveal d1">
-          <span class="mini-num">04</span>
+        <article class="side reveal d1">
+          <span class="side-num">04</span>
           <h4>Diseño de Software · Patrones</h4>
           <p>Proyecto en Java enfocado en arquitectura y patrones de diseño: separación de responsabilidades y código mantenible.</p>
           <ul class="chips sm"><li>Java</li><li>POO</li><li>Patrones</li></ul>
           <a class="lnk" href="https://github.com/SOG77/parcial2" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="mini reveal d2">
-          <span class="mini-num">05</span>
+        <article class="side reveal d2">
+          <span class="side-num">05</span>
           <h4>Propuesta Web</h4>
           <p>Sitio construido con JavaScript, HTML y CSS puros, cuidando la estructura semántica y la presentación.</p>
           <ul class="chips sm"><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
           <a class="lnk" href="https://github.com/SOG77/propuesta" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="mini next reveal d3">
-          <span class="mini-num">06</span>
-          <h4>Próximo proyecto</h4>
+        <article class="side locked reveal d3">
+          <span class="side-num">06</span>
+          <h4>Próxima misión</h4>
           <p>Estoy construyendo algo nuevo ahora mismo. El código aparece primero en GitHub.</p>
           <ul class="chips sm"><li>En progreso</li></ul>
           <a class="lnk" href="https://github.com/SOG77" target="_blank" rel="noopener">Ver GitHub <span aria-hidden="true">↗</span></a>
         </article>
-
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ SOBRE MÍ ============================ -->
-<section class="section about" id="sobre-mi">
-  <div class="wrap about-grid">
-    <div class="about-copy reveal">
-      <p class="eyebrow">// Sobre mí</p>
-      <h2>Aprendo rápido y <span class="grad">entrego completo</span></h2>
-      <p>Soy desarrollador Full Stack y me interesa el punto donde una idea se convierte en algo
-      que la gente puede usar sin pensarlo. No me quedo solo en la interfaz ni solo en el
+<!-- ============================ PERFIL ============================ -->
+<section class="section profile" id="perfil">
+  <div class="wrap profile-grid">
+    <div class="profile-copy reveal">
+      <p class="eyebrow">// Ficha de personaje</p>
+      <h2>Aprendo rápido y <span class="accent">entrego completo</span></h2>
+      <p>Soy Sebastian, desarrollador Full Stack. Me interesa el punto donde una idea se convierte
+      en algo que la gente puede usar sin pensarlo. No me quedo solo en la interfaz ni solo en el
       servidor: prefiero entender el problema entero y responder por el resultado.</p>
       <p>Trabajo con Java y Spring Boot en el backend, React en el frontend, y PostgreSQL y Docker
       para que todo sea reproducible. Escribo código legible, documento lo que hago y entrego en
       iteraciones pequeñas para que siempre haya algo funcionando.</p>
 
-      <ul class="values">
+      <ul class="perks">
         <li><b>Código claro</b><span>Legible antes que ingenioso. Que el siguiente lo entienda.</span></li>
         <li><b>Entrega iterativa</b><span>Versiones que funcionan desde el primer día.</span></li>
         <li><b>Curiosidad constante</b><span>Cada proyecto es una tecnología nueva bien aprendida.</span></li>
       </ul>
     </div>
 
-    <aside class="about-side">
+    <aside class="profile-side">
       <div class="panel reveal">
-        <h3>Nivel de dominio</h3>
-        <div class="skill"><span>Java / Spring Boot</span><div class="bar"><i data-level="85"></i></div></div>
-        <div class="skill"><span>JavaScript / React</span><div class="bar"><i data-level="80"></i></div></div>
-        <div class="skill"><span>HTML / CSS</span><div class="bar"><i data-level="90"></i></div></div>
-        <div class="skill"><span>SQL / PostgreSQL</span><div class="bar"><i data-level="75"></i></div></div>
-        <div class="skill"><span>Docker / Git</span><div class="bar"><i data-level="70"></i></div></div>
+        <h3><span aria-hidden="true">▦</span> Atributos</h3>
+        <div class="skill"><span>Java / Spring Boot</span><div class="xp"><i data-level="85"></i></div></div>
+        <div class="skill"><span>JavaScript / React</span><div class="xp"><i data-level="80"></i></div></div>
+        <div class="skill"><span>HTML / CSS</span><div class="xp"><i data-level="90"></i></div></div>
+        <div class="skill"><span>SQL / PostgreSQL</span><div class="xp"><i data-level="75"></i></div></div>
+        <div class="skill"><span>Docker / Git</span><div class="xp"><i data-level="70"></i></div></div>
       </div>
 
       <div class="panel reveal d1">
-        <h3>Cómo trabajo</h3>
+        <h3><span aria-hidden="true">▶</span> Ruta de juego</h3>
         <ol class="steps">
           <li><b>Entender</b> el problema y a quién le duele.</li>
           <li><b>Diseñar</b> los datos y el flujo antes de escribir código.</li>
@@ -340,32 +380,32 @@
 
 <!-- ============================ CONTACTO ============================ -->
 <section class="section contact" id="contacto">
-  <div class="aurora soft" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div></div>
+  <div class="glowfield soft" aria-hidden="true"><span></span></div>
   <div class="wrap contact-inner reveal">
-    <p class="eyebrow">// Contacto</p>
-    <h2>¿Tienes un proyecto<br><span class="grad">en mente?</span></h2>
+    <p class="eyebrow">// Modo multijugador</p>
+    <h2>¿Tienes un proyecto<br><span class="accent">en mente?</span></h2>
     <p class="section-sub center">Cuéntame qué necesitas construir. Respondo rápido y sin vueltas.</p>
 
     <div class="contact-cards">
-      <a class="ccard" href="https://wa.me/573000000000" target="_blank" rel="noopener">
-        <span class="ccard-ico">✆</span>
+      <a class="ccard" href="https://wa.me/573194384063" target="_blank" rel="noopener">
+        <span class="ccard-ico" aria-hidden="true">✆</span>
         <b>WhatsApp</b>
-        <small>+57 300 000 0000</small>
+        <small>+57 319 438 4063</small>
       </a>
-      <a class="ccard" href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">
-        <span class="ccard-ico">in</span>
+      <a class="ccard" href="https://www.linkedin.com/in/sebasti%C3%A1n-ospina-guevara-773560245" target="_blank" rel="noopener">
+        <span class="ccard-ico" aria-hidden="true">in</span>
         <b>LinkedIn</b>
-        <small>Conectemos</small>
+        <small>Sebastian Ospina Guevara</small>
       </a>
       <a class="ccard" href="https://github.com/SOG77" target="_blank" rel="noopener">
-        <span class="ccard-ico">&lt;/&gt;</span>
+        <span class="ccard-ico" aria-hidden="true">&lt;/&gt;</span>
         <b>GitHub</b>
         <small>@SOG77</small>
       </a>
     </div>
 
-    <a class="btn btn-primary big" href="https://wa.me/573000000000" target="_blank" rel="noopener">
-      Escríbeme por WhatsApp <span aria-hidden="true">→</span>
+    <a class="btn btn-primary big" href="https://wa.me/573194384063" target="_blank" rel="noopener">
+      <span class="btn-ico" aria-hidden="true">▶</span> Escríbeme por WhatsApp
     </a>
   </div>
 </section>
@@ -376,13 +416,15 @@
 <footer class="footer">
   <div class="wrap footer-inner">
     <a class="logo" href="#inicio">
-      <span class="logo-mark">S</span>
-      <span class="logo-text">SOG<span class="grad">77</span></span>
+      <span class="logo-mark" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+      </span>
+      <span class="logo-text">SOG<span class="accent">77</span></span>
     </a>
-    <p>Diseñado y programado por Sebastián · <span id="year"></span></p>
+    <p>Diseñado y programado por Sebastian Ospina · <span id="year"></span></p>
     <div class="footer-links">
       <a href="https://github.com/SOG77" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/tu-usuario" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/sebasti%C3%A1n-ospina-guevara-773560245" target="_blank" rel="noopener">LinkedIn</a>
       <a href="#inicio">Volver arriba ↑</a>
     </div>
   </div>

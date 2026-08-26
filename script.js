@@ -11,7 +11,7 @@
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
 
-  /* ---------- Nav: fondo sólido + barra de progreso ---------- */
+  /* ---------- HUD: fondo sólido + barra de progreso ---------- */
   var nav = document.getElementById('nav');
   var progress = document.getElementById('progress');
 
@@ -20,8 +20,7 @@
     if (nav) nav.classList.toggle('solid', y > 20);
 
     if (progress) {
-      var doc = document.documentElement;
-      var max = doc.scrollHeight - window.innerHeight;
+      var max = document.documentElement.scrollHeight - window.innerHeight;
       progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
     }
   }
@@ -35,7 +34,10 @@
   function closeMenu() {
     if (!navLinks) return;
     navLinks.classList.remove('open');
-    if (burger) burger.setAttribute('aria-expanded', 'false');
+    if (burger) {
+      burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-label', 'Abrir menú');
+    }
   }
 
   if (burger && navLinks) {
@@ -71,7 +73,7 @@
 
   /* ---------- Link activo según la sección visible ---------- */
   var sections = document.querySelectorAll('section[id]');
-  var links = document.querySelectorAll('.nav-links a[href^="#"]');
+  var links = document.querySelectorAll('.hud-links a[href^="#"]');
 
   if ('IntersectionObserver' in window && sections.length) {
     var sectionObserver = new IntersectionObserver(function (entries) {
@@ -87,7 +89,7 @@
     sections.forEach(function (s) { sectionObserver.observe(s); });
   }
 
-  /* ---------- Contadores del hero ---------- */
+  /* ---------- Contadores del HUD ---------- */
   var counters = document.querySelectorAll('[data-count]');
 
   function runCounter(el) {
@@ -95,7 +97,7 @@
     var suffix = el.getAttribute('data-suffix') || '';
     if (reduceMotion) { el.textContent = target + suffix; return; }
 
-    var duration = 1300;
+    var duration = 1200;
     var start = null;
 
     function step(ts) {
@@ -121,8 +123,8 @@
     counters.forEach(runCounter);
   }
 
-  /* ---------- Barras de nivel ---------- */
-  var bars = document.querySelectorAll('.bar i[data-level]');
+  /* ---------- Barras de XP ---------- */
+  var bars = document.querySelectorAll('.xp i[data-level]');
 
   if ('IntersectionObserver' in window && bars.length) {
     var barObserver = new IntersectionObserver(function (entries) {
@@ -137,46 +139,91 @@
     bars.forEach(function (el) { el.style.width = el.getAttribute('data-level') + '%'; });
   }
 
-  /* ---------- Efecto máquina de escribir en el hero ---------- */
+  /* ---------- Máquina de escribir en la línea de CLASE ---------- */
   var typed = document.getElementById('typed');
-  var WORDS = ['principio a fin.', 'la base de datos a la UI.', 'verdad, no de demo.', 'forma clara y mantenible.'];
+  var ROLES = [
+    'Full Stack Developer',
+    'Backend · Java + Spring',
+    'Frontend · React',
+    'Resuelve problemas'
+  ];
 
   if (typed) {
     if (reduceMotion) {
-      typed.textContent = WORDS[0];
+      typed.textContent = ROLES[0];
     } else {
-      var wordIndex = 0;
+      var roleIndex = 0;
       var charIndex = 0;
       var deleting = false;
 
       (function typeLoop() {
-        var word = WORDS[wordIndex];
+        var role = ROLES[roleIndex];
         charIndex += deleting ? -1 : 1;
-        typed.textContent = word.slice(0, charIndex);
+        typed.textContent = role.slice(0, charIndex);
 
-        var delay = deleting ? 38 : 68;
+        var delay = deleting ? 34 : 66;
 
-        if (!deleting && charIndex === word.length) {
+        if (!deleting && charIndex === role.length) {
           deleting = true;
-          delay = 1900;
+          delay = 2000;
         } else if (deleting && charIndex === 0) {
           deleting = false;
-          wordIndex = (wordIndex + 1) % WORDS.length;
-          delay = 320;
+          roleIndex = (roleIndex + 1) % ROLES.length;
+          delay = 300;
         }
         setTimeout(typeLoop, delay);
       })();
     }
   }
 
-  /* ---------- Brillo que sigue el cursor en las tarjetas de stack ---------- */
-  if (!reduceMotion && window.matchMedia('(hover: hover)').matches) {
-    document.querySelectorAll('.stack-card').forEach(function (card) {
-      card.addEventListener('mousemove', function (e) {
-        var r = card.getBoundingClientRect();
-        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
-      });
+  /* ---------- Easter egg: código Konami ---------- */
+  var KONAMI = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a'];
+  var streak = 0;
+
+  document.addEventListener('keydown', function (e) {
+    var expected = KONAMI[streak];
+    var pressed = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+
+    if (pressed === expected) {
+      streak++;
+      if (streak === KONAMI.length) {
+        streak = 0;
+        showAchievement();
+      }
+    } else {
+      streak = pressed === KONAMI[0] ? 1 : 0;
+    }
+  });
+
+  function showAchievement() {
+    if (document.querySelector('.achievement')) return;
+
+    var box = document.createElement('div');
+    box.className = 'achievement';
+    box.setAttribute('role', 'status');
+    box.innerHTML =
+      '<span class="toast-key">LOGRO DESBLOQUEADO</span>' +
+      '<b>Código Konami</b>' +
+      '<small>Sabes buscar. Eso ya dice mucho. Escríbeme.</small>';
+
+    Object.assign(box.style, {
+      position: 'fixed',
+      left: '50%',
+      bottom: '32px',
+      transform: 'translateX(-50%)',
+      zIndex: '400',
+      display: 'grid',
+      gap: '4px',
+      padding: '16px 22px',
+      border: '1px solid #34343a',
+      background: 'rgba(20,20,22,.97)',
+      boxShadow: '6px 6px 0 rgba(0,0,0,.5)',
+      textAlign: 'center'
     });
+    box.querySelector('small').style.cssText =
+      'font-family:"JetBrains Mono",monospace;font-size:11px;color:#9a978f';
+
+    document.body.appendChild(box);
+    setTimeout(function () { box.remove(); }, 5200);
   }
 })();
