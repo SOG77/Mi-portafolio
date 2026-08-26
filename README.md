@@ -40,13 +40,12 @@ GitHub renderiza el `README.md` en la portada del repositorio.
 
 - `*-marca.png` — el panel de marca del login de cada plataforma. No tiene
   ningún dato, solo el logo.
-- `zenit-integrity.png` y `zenit-informes.png` — capturas reales de la
-  aplicación. **Los datos sensibles están difuminados**: nombres de partidos,
+- `zenit.png`, `zenit-integrity.png` y `zenit-informes.png` — capturas reales
+  de cada aplicación. **Los datos sensibles están difuminados**: nombres de partidos,
   casas de apuestas, marcas de clientes y todas las cifras financieras.
 
-Zenit no tiene captura de su interfaz: la pantalla real muestra cuentas de
-jugadores con cédula, teléfono, correo y saldo. Usa un mockup en CSS y lo dice
-abiertamente bajo la imagen.
+La captura de Zenit se tomó con la cuenta de prueba **PRUEBAS SAC**, no con un
+jugador real. Aun así van difuminados el documento, el teléfono y el correo.
 
 Al reemplazar cualquier captura, revisa que no quede visible ningún dato de
 jugadores, cifra de operación ni marca de cliente.
