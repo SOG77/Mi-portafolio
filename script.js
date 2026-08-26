@@ -143,9 +143,9 @@
   var typed = document.getElementById('typed');
   var ROLES = [
     'Full Stack Developer',
-    'Backend · Java + Spring',
-    'Frontend · React',
-    'Resuelve problemas'
+    'Backend · Python + Flask',
+    'Frontend · React + TypeScript',
+    'Automatiza lo repetitivo'
   ];
 
   if (typed) {

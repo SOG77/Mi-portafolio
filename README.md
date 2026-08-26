@@ -1,6 +1,6 @@
 # Portafolio · Sebastian Ospina Guevara
 
-Portafolio personal de **Sebastian Ospina**, desarrollador Full Stack.
+Portafolio personal de **Sebastian Ospina**, desarrollador Full Stack en Atomo Gaming.
 Sitio estático (HTML + CSS + JavaScript, sin dependencias ni build) con estética de
 consola retro / HUD de videojuego, publicado automáticamente en GitHub Pages.
 
@@ -49,6 +49,24 @@ habilidades, scanlines de CRT y el código Konami como easter egg
 
 ---
 
+## Proyectos destacados
+
+Los tres primeros son plataformas internas en producción (código privado, sin enlace):
+
+| # | Proyecto | Stack |
+|---|---|---|
+| 01 | Plataforma Unificada de Gestión | Flask · React 19 · TypeScript · PostgreSQL · JWT |
+| 02 | Zenit Integrity | Flask · WebSockets · SSE · React · Recharts · Docker |
+| 03 | Zenit Informes | Flask · pandas · React · PostgreSQL 16 · Docker · Nginx |
+| 04–09 | Bot Aviator y proyectos públicos en GitHub | Python · Java · Spring Boot · React |
+
+> **Nota sobre confidencialidad:** las descripciones son de alto nivel (qué resuelve
+> y con qué está hecho). No incluyen endpoints, credenciales, nombres de sistemas
+> internos ni fuentes de datos. Si algo debe salir del sitio, está todo en la
+> sección `PROYECTOS` de `index.html`.
+
+---
+
 ## Datos personales en el sitio
 
 Ya están puestos los reales. Si alguno cambia, búscalo en `index.html`:
@@ -77,6 +95,12 @@ Ya están puestos los reales. Si alguno cambia, búscalo en `index.html`:
 **Misión principal** (tarjeta grande con mockup) — copia un `<article class="quest">`.
 Agrega la clase `reverse` para que el mockup quede al otro lado.
 La dificultad se marca con `<i class="on"></i>` (relleno) o `<i></i>` (vacío).
+
+Para un proyecto privado, en vez del enlace usa:
+
+```html
+<span class="private"><span aria-hidden="true">🔒</span> Código privado · Atomo Gaming</span>
+```
 
 ---
 
