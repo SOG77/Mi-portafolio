@@ -14,7 +14,9 @@ consola retro / HUD de videojuego, publicado automáticamente en GitHub Pages.
 |---|---|
 | `index.html` | Todo el contenido (hero, inventario, misiones, perfil, contacto) |
 | `styles.css` | Estilos completos: paleta neutra, responsive y accesible |
-| `script.js` | Menú móvil, reveal al scroll, contadores, barras de XP, typewriter, Konami |
+| `i18n.js` | Diccionario ES/EN. Cada clave corresponde a un `data-i18n` del HTML |
+| `script.js` | Idioma, menú móvil, reveal, contadores, barras de XP, typewriter, Konami |
+| `cv-sebastian-ospina-es.pdf` / `-en.pdf` | Hoja de vida en ambos idiomas |
 | `favicon.svg` | Icono de la pestaña (pixel art) |
 | `og.svg` | Imagen de vista previa al compartir el enlace |
 | `404.html` | Pantalla "GAME OVER" con el mismo diseño |
@@ -49,15 +51,52 @@ habilidades, scanlines de CRT y el código Konami como easter egg
 
 ---
 
+## Idiomas (ES / EN)
+
+El sitio es bilingüe con un solo archivo HTML:
+
+- El **español vive en el HTML**, así que la página funciona aunque el JavaScript falle.
+- El **inglés vive en `i18n.js`**, indexado por la misma clave `data-i18n`.
+- El idioma se elige así, en orden: `?lang=en` en la URL → lo guardado en `localStorage` →
+  el idioma del navegador.
+- El botón de CV cambia solo al PDF del idioma activo.
+
+**Al agregar texto nuevo**, ponle una clave y agrégala en los DOS diccionarios:
+
+```html
+<p data-i18n="mi.clave">Texto en español</p>
+```
+
+```js
+es: { 'mi.clave': 'Texto en español' },
+en: { 'mi.clave': 'Text in English' }
+```
+
+Para verificar que no falte ninguna traducción:
+
+```bash
+python -c "
+import io,re
+h=set(re.findall(r'data-i18n(?:-content)?=\"([^\"]+)\"',io.open('index.html',encoding='utf-8').read()))
+js=io.open('i18n.js',encoding='utf-8').read()
+k=lambda b:set(re.findall(r\"'([a-zA-Z0-9_.]+)':\s*['[]\",b))
+es=k(js.split('  es: {')[1].split('  en: {')[0]); en=k(js.split('  en: {')[1])
+print('faltantes:', sorted((h-es)|(h-en)) or 'ninguna')"
+```
+
+Enlace directo en inglés: `https://sog77.github.io/Mi-portafolio/?lang=en`
+
+---
+
 ## Proyectos destacados
 
 Los tres primeros son plataformas internas en producción (código privado, sin enlace):
 
 | # | Proyecto | Stack |
 |---|---|---|
-| 01 | Plataforma Unificada de Gestión | Flask · React 19 · TypeScript · PostgreSQL · JWT |
-| 02 | Zenit Integrity | Flask · WebSockets · SSE · React · Recharts · Docker |
-| 03 | Zenit Informes | Flask · pandas · React · PostgreSQL 16 · Docker · Nginx |
+| 01 | Zenit Integrity | Flask · WebSockets · SSE · React 19 · Recharts · Alembic · Kubernetes |
+| 02 | Zenit | Flask · React 19 · TypeScript · PostgreSQL · JWT · ExcelJS |
+| 03 | Zenit Informes | Flask · pandas · React 19 · PostgreSQL 16 · Docker · Nginx |
 | 04–09 | Bot Aviator y proyectos públicos en GitHub | Python · Java · Spring Boot · React |
 
 > **Nota sobre confidencialidad:** las descripciones son de alto nivel (qué resuelve
@@ -144,10 +183,7 @@ Si compras un dominio, crea un archivo `CNAME` en la raíz con el dominio dentro
 
 ---
 
-## Añadir tu CV
+## Actualizar el CV
 
-Coloca `cv.pdf` en la raíz del repositorio y agrega el botón en el hero de `index.html`:
-
-```html
-<a class="btn btn-ghost" href="cv.pdf" download>Descargar CV</a>
-```
+Reemplaza `cv-sebastian-ospina-es.pdf` y `cv-sebastian-ospina-en.pdf` en la raíz.
+Los botones del hero y de contacto ya apuntan ahí y cambian según el idioma activo.

@@ -120,6 +120,20 @@ code{
 .hud-links a.hud-cta:hover{background:var(--bone);color:#0b0b0c}
 .hud-links a.hud-cta::before{display:none}
 
+/* selector de idioma */
+.hud-right{display:flex;align-items:center;gap:14px}
+.lang{
+  display:flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--line-2);
+  border:1px solid var(--line);padding:5px 9px;
+}
+.lang button{
+  background:none;border:0;padding:2px 3px;cursor:pointer;
+  font:inherit;letter-spacing:inherit;color:var(--dim);transition:color .2s;
+}
+.lang button:hover{color:var(--text)}
+.lang button.on{color:var(--sand);font-weight:500}
+
 .hud-progress{height:2px;background:var(--line)}
 .hud-progress i{display:block;height:100%;width:0;background:var(--sand);transition:width .1s linear}
 
@@ -449,6 +463,18 @@ code{
   display:flex;flex-direction:column;gap:4px;
   border-left:2px solid var(--sand);padding-left:12px;font-size:13px;color:#b3afa6;
 }
+/* métricas reales del proyecto */
+.metrics{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--line);border:1px solid var(--line);margin:4px 0;
+}
+.metrics li{display:grid;gap:2px;padding:11px 12px;background:var(--panel)}
+.metrics strong{
+  font-family:var(--display);font-size:21px;font-weight:700;
+  color:var(--sand);letter-spacing:-.02em;line-height:1.1;
+}
+.metrics span{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;color:var(--dim);line-height:1.35}
+
 .quest-links{margin-top:6px}
 .lnk{
   display:inline-flex;align-items:center;gap:8px;
@@ -485,6 +511,35 @@ code{
 .side .lnk{align-self:flex-start;font-size:11.5px}
 .side.locked{border-style:dashed;background:transparent}
 
+/* ============================ TRAYECTORIA ============================ */
+.journey{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.timeline{position:relative;display:grid;gap:0;padding-left:0}
+.timeline::before{
+  content:"";position:absolute;left:7px;top:10px;bottom:10px;width:1px;background:var(--line-2);
+}
+.tl{position:relative;display:grid;grid-template-columns:170px 1fr;gap:26px;padding:0 0 34px 30px}
+.tl::before{
+  content:"";position:absolute;left:0;top:6px;width:15px;height:15px;
+  border:1px solid var(--sand);background:var(--bg-2);
+}
+.tl:first-child::before{background:var(--sand)}
+.tl.edu::before{border-style:dashed}
+.tl:last-child{padding-bottom:0}
+.tl-date{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--dim);padding-top:4px;
+}
+.tl-date b{color:var(--sand);font-weight:500}
+.tl-body h3{font-size:20px;text-transform:uppercase;letter-spacing:.02em;margin-bottom:4px}
+.tl-role{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.05em;
+  color:var(--sand-dim);margin-bottom:10px;
+}
+.tl-body>p:not(.tl-role){color:var(--muted);font-size:14.5px;margin-bottom:12px}
+
+.certs{margin-top:46px;padding-top:22px;border-top:1px solid var(--line)}
+.certs .key{display:block;margin-bottom:13px}
+
 /* ============================ PERFIL ============================ */
 .profile{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .profile-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:start}
@@ -516,7 +571,8 @@ code{
 /* ============================ CONTACTO ============================ */
 .contact{text-align:center;overflow:hidden}
 .contact-inner{position:relative;z-index:1}
-.contact-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:720px;margin:0 auto 36px}
+.contact-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:900px;margin:0 auto 36px}
+.contact-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .ccard{
   display:grid;justify-items:center;gap:4px;
   border:1px solid var(--line);background:var(--panel);padding:24px 16px;
@@ -538,6 +594,16 @@ code{
 .footer-links{display:flex;gap:18px;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
 .footer-links a:hover{color:var(--sand)}
 
+/* logro del easter egg */
+.achievement{
+  position:fixed;left:50%;bottom:32px;transform:translateX(-50%);z-index:400;
+  display:grid;gap:4px;text-align:center;padding:16px 24px;
+  border:1px solid var(--line-2);background:rgba(20,20,22,.97);
+  box-shadow:6px 6px 0 rgba(0,0,0,.5);
+}
+.achievement b{font-family:var(--display);font-size:16px;letter-spacing:.03em}
+.achievement small{font-family:var(--mono);font-size:11px;color:var(--muted)}
+
 /* ============================ REVEAL ============================ */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,1,.36,1)}
 .reveal.visible{opacity:1;transform:none}
@@ -555,6 +621,9 @@ code{
   .quest-visual{border-right:0;border-bottom:1px solid var(--line)}
   .sides{grid-template-columns:repeat(2,1fr)}
   .slots{grid-template-columns:1fr}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .tl{grid-template-columns:1fr;gap:8px}
+  .contact-cards{grid-template-columns:repeat(2,1fr)}
 }
 
 @media (max-width:720px){
@@ -597,6 +666,14 @@ code{
   .diff{margin-left:0}
   .sides{grid-template-columns:1fr}
   .contact-cards{grid-template-columns:1fr}
+  .contact-actions{flex-direction:column}
+  .contact-actions .btn{justify-content:center}
+  .hud-right{gap:9px}
+  .lang{padding:4px 7px;font-size:10px}
+  .tl{padding-left:24px;padding-bottom:28px}
+  .tl-body h3{font-size:18px}
+  .metrics{grid-template-columns:repeat(2,1fr)}
+  .journey .section-head{margin-bottom:38px}
   .footer-inner{flex-direction:column;text-align:center}
   .scanlines{opacity:.35}
 }

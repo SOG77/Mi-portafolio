@@ -3,32 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sebastian Ospina · Desarrollador Full Stack</title>
+<title data-i18n="meta.title">Sebastian Ospina · Desarrollador Full Stack</title>
 
 <!--
   ===================================================================
   PORTAFOLIO — Sebastian Ospina Guevara (SOG77)
-  Sitio estático. Publicado en: https://sog77.github.io/Mi-portafolio/
-  Para agregar un proyecto, copia un bloque <article class="quest">
-  o <article class="side"> en la sección PROYECTOS.
+  Sitio estático bilingüe. https://sog77.github.io/Mi-portafolio/
+  El español va en el HTML; el inglés vive en i18n.js con la misma
+  clave data-i18n. Si agregas texto nuevo, agrega su clave allí.
   ===================================================================
 -->
 
-<meta name="description" content="Sebastian Ospina Guevara — Desarrollador Full Stack en Atomo Gaming. Python, Flask, React, TypeScript, PostgreSQL y Docker. Plataformas internas en producción para la industria del gaming.">
+<meta name="description" data-i18n-content="meta.description" content="Sebastian Ospina Guevara — Desarrollador Full Stack en Atomo Gaming. Python, Flask, React 19, TypeScript, PostgreSQL, Docker y Kubernetes. Plataformas en producción para la industria del gaming.">
 <meta name="author" content="Sebastian Ospina Guevara">
 <meta name="theme-color" content="#0b0b0c">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://sog77.github.io/Mi-portafolio/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sog77.github.io/Mi-portafolio/">
-<meta property="og:title" content="Sebastian Ospina · Desarrollador Full Stack">
-<meta property="og:description" content="Plataformas internas en producción: gestión de usuarios, monitoreo de integridad deportiva y automatización de informes. Python · Flask · React · TypeScript · PostgreSQL · Docker.">
+<meta property="og:title" content="Sebastian Ospina · Full Stack Developer">
+<meta property="og:description" content="Zenit Integrity: 2,4M de registros de cuotas, 153.000 partidos, 211.000 alertas. Python · Flask · React 19 · TypeScript · PostgreSQL · Docker · Kubernetes.">
 <meta property="og:image" content="https://sog77.github.io/Mi-portafolio/og.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Sebastian Ospina — Desarrollador Full Stack">
 <meta property="og:locale" content="es_CO">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,20 +44,29 @@
   "jobTitle": "Desarrollador Full Stack",
   "url": "https://sog77.github.io/Mi-portafolio/",
   "image": "https://sog77.github.io/Mi-portafolio/og.png",
+  "email": "mailto:sebasospinag@gmail.com",
+  "telephone": "+573194384063",
   "worksFor": { "@type": "Organization", "name": "Atomo Gaming" },
-  "address": { "@type": "PostalAddress", "addressCountry": "CO" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidad EAM" },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Armenia",
+    "addressRegion": "Quindío",
+    "addressCountry": "CO"
+  },
   "sameAs": [
     "https://github.com/SOG77",
-    "https://www.linkedin.com/in/sebastián-ospina-guevara-773560245"
+    "https://www.linkedin.com/in/sebasti%C3%A1n-ospina-guevara-773560245"
   ],
-  "knowsAbout": ["Python","Flask","React","TypeScript","PostgreSQL","Docker","Java","Spring Boot"]
+  "knowsAbout": ["Python","Flask","React","TypeScript","PostgreSQL","Docker","Kubernetes","SQLAlchemy","Alembic","WebSockets","Java","Spring Boot"],
+  "knowsLanguage": ["es","en"]
 }
 </script>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<a class="skip" href="#main">Saltar al contenido</a>
+<a class="skip" href="#main" data-i18n="a11y.skip">Saltar al contenido</a>
 <div class="scanlines" aria-hidden="true"></div>
 <div class="vignette" aria-hidden="true"></div>
 
@@ -71,16 +81,24 @@
     </a>
 
     <nav class="hud-links" id="navLinks" aria-label="Navegación principal">
-      <a href="#inicio">Inicio</a>
-      <a href="#inventario">Habilidades</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#perfil">Perfil</a>
-      <a href="#contacto" class="hud-cta">Contacto <span aria-hidden="true">▸</span></a>
+      <a href="#inicio" data-i18n="nav.home">Inicio</a>
+      <a href="#inventario" data-i18n="nav.stack">Habilidades</a>
+      <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+      <a href="#trayectoria" data-i18n="nav.journey">Trayectoria</a>
+      <a href="#perfil" data-i18n="nav.profile">Perfil</a>
+      <a href="#contacto" class="hud-cta" data-i18n="nav.contact">Contacto <span aria-hidden="true">▸</span></a>
     </nav>
 
-    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="hud-right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="es" class="on" aria-pressed="true">ES</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
   <div class="hud-progress"><i id="progress"></i></div>
 </header>
@@ -94,33 +112,35 @@
 
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="tag"><span class="blip"></span> PLAYER 01 · DISPONIBLE</p>
+      <p class="tag"><span class="blip"></span> <span data-i18n="hero.badge">PLAYER 01 · DISPONIBLE</span></p>
 
       <h1>Sebastian<br><span class="outline">Ospina</span></h1>
 
       <p class="class-line">
-        <span class="key">CLASE</span>
+        <span class="key" data-i18n="hero.classLabel">CLASE</span>
         <span class="typed" id="typed" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
       </p>
 
-      <p class="lead">
-        Construyo plataformas internas que hoy están <strong>en producción</strong> en la
-        industria del gaming. Trabajo el ciclo completo: modelo la base de datos, levanto la
-        API con <strong>Python</strong> y <strong>Flask</strong>, y construyo la interfaz en
+      <p class="lead" data-i18n="hero.lead">
+        Construyo plataformas que hoy están <strong>en producción</strong> en la industria del
+        gaming. Trabajo el ciclo completo: modelo la base de datos, levanto la API con
+        <strong>Python</strong> y <strong>Flask</strong>, y construyo la interfaz en
         <strong>React</strong> y <strong>TypeScript</strong> hasta que se siente rápida y obvia de usar.
       </p>
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="#proyectos">
-          <span class="btn-ico" aria-hidden="true">▶</span> Ver proyectos
+          <span class="btn-ico" aria-hidden="true">▶</span> <span data-i18n="hero.ctaProjects">Ver proyectos</span>
         </a>
-        <a class="btn btn-ghost" href="#contacto">Contactar</a>
+        <a class="btn btn-ghost" href="cv-sebastian-ospina-es.pdf" id="cvLink" download>
+          <span class="btn-ico" aria-hidden="true">⇩</span> <span data-i18n="hero.ctaCv">Descargar CV</span>
+        </a>
       </div>
 
       <ul class="hud-stats">
-        <li><span class="key">Proyectos</span><strong data-count="9">0</strong></li>
-        <li><span class="key">Empresa</span><strong data-count="4">0</strong></li>
-        <li><span class="key">Stack</span><strong data-count="12">0</strong></li>
+        <li><span class="key" data-i18n="hero.stat1">Años en tech</span><strong data-count="2" data-suffix="+">0</strong></li>
+        <li><span class="key" data-i18n="hero.stat2">En producción</span><strong data-count="3">0</strong></li>
+        <li><span class="key" data-i18n="hero.stat3">Stack</span><strong data-count="12">0</strong></li>
       </ul>
     </div>
 
@@ -139,156 +159,110 @@
           </div>
 
           <div class="card-id">
-            <p class="key">NOMBRE</p>
+            <p class="key" data-i18n="card.name">NOMBRE</p>
             <p class="val">SEBASTIAN OSPINA</p>
-            <p class="key">ROL</p>
-            <p class="val accent">FULL STACK DEV</p>
-            <p class="key">GREMIO</p>
+            <p class="key" data-i18n="card.role">ROL</p>
+            <p class="val accent" data-i18n="card.roleValue">FULL STACK DEV</p>
+            <p class="key" data-i18n="card.guild">GREMIO</p>
             <p class="val">ATOMO GAMING</p>
-            <p class="key">BASE</p>
-            <p class="val">COLOMBIA · REMOTO</p>
+            <p class="key" data-i18n="card.base">BASE</p>
+            <p class="val">ARMENIA, QUINDÍO · CO</p>
           </div>
 
           <div class="card-bars">
             <div class="statline"><span>BACKEND</span><div class="xp"><i data-level="88"></i></div><b>88</b></div>
             <div class="statline"><span>FRONTEND</span><div class="xp"><i data-level="85"></i></div><b>85</b></div>
-            <div class="statline"><span>DATOS</span><div class="xp"><i data-level="80"></i></div><b>80</b></div>
-            <div class="statline"><span>DEVOPS</span><div class="xp"><i data-level="72"></i></div><b>72</b></div>
+            <div class="statline"><span>DATOS</span><div class="xp"><i data-level="82"></i></div><b>82</b></div>
+            <div class="statline"><span>DEVOPS</span><div class="xp"><i data-level="74"></i></div><b>74</b></div>
           </div>
 
-          <p class="press">PULSA <b>▶</b> PARA CONTINUAR</p>
+          <p class="press" data-i18n="card.press">PULSA <b>▶</b> PARA CONTINUAR</p>
         </div>
       </div>
 
       <div class="toast t1">
-        <span class="toast-key">LOGRO DESBLOQUEADO</span>
-        <b>3 plataformas en producción</b>
+        <span class="toast-key" data-i18n="toast.achievement">LOGRO DESBLOQUEADO</span>
+        <b data-i18n="toast.achievementValue">2,4M de registros procesados</b>
       </div>
       <div class="toast t2">
-        <span class="toast-key">+ EXPERIENCIA</span>
+        <span class="toast-key" data-i18n="toast.exp">+ EXPERIENCIA</span>
         <b>Python · Flask · React</b>
       </div>
     </div>
   </div>
 
-  <a class="scroll-hint" href="#inventario" aria-label="Bajar al siguiente bloque">
+  <a class="scroll-hint" href="#inventario" aria-label="Bajar">
     <span aria-hidden="true"></span> scroll
   </a>
 </section>
 
 <!-- ============================ INVENTARIO / STACK ============================ -->
-<section class="strip" id="inventario" aria-label="Habilidades y tecnologías">
+<section class="strip" id="inventario" aria-label="Habilidades">
   <div class="ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span>Python</span><i>▪</i><span>Flask</span><i>▪</i><span>React</span><i>▪</i>
+      <span>Python</span><i>▪</i><span>Flask</span><i>▪</i><span>React 19</span><i>▪</i>
       <span>TypeScript</span><i>▪</i><span>PostgreSQL</span><i>▪</i><span>Docker</span><i>▪</i>
-      <span>SQLAlchemy</span><i>▪</i><span>Tailwind</span><i>▪</i><span>Java</span><i>▪</i>
-      <span>Spring Boot</span><i>▪</i><span>WebSockets</span><i>▪</i><span>Vite</span><i>▪</i>
-      <span>Python</span><i>▪</i><span>Flask</span><i>▪</i><span>React</span><i>▪</i>
+      <span>Kubernetes</span><i>▪</i><span>SQLAlchemy</span><i>▪</i><span>Alembic</span><i>▪</i>
+      <span>WebSockets</span><i>▪</i><span>Tailwind</span><i>▪</i><span>GitLab CI</span><i>▪</i>
+      <span>Python</span><i>▪</i><span>Flask</span><i>▪</i><span>React 19</span><i>▪</i>
       <span>TypeScript</span><i>▪</i><span>PostgreSQL</span><i>▪</i><span>Docker</span><i>▪</i>
-      <span>SQLAlchemy</span><i>▪</i><span>Tailwind</span><i>▪</i><span>Java</span><i>▪</i>
-      <span>Spring Boot</span><i>▪</i><span>WebSockets</span><i>▪</i><span>Vite</span><i>▪</i>
+      <span>Kubernetes</span><i>▪</i><span>SQLAlchemy</span><i>▪</i><span>Alembic</span><i>▪</i>
+      <span>WebSockets</span><i>▪</i><span>Tailwind</span><i>▪</i><span>GitLab CI</span><i>▪</i>
     </div>
   </div>
 
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow">// Inventario</p>
-      <h2>Equipo con el que <span class="accent">trabajo</span></h2>
-      <p class="section-sub">Las herramientas que uso a diario y para qué las uso realmente.</p>
+      <p class="eyebrow" data-i18n="stack.eyebrow">// Inventario</p>
+      <h2 data-i18n="stack.title">Equipo con el que <span class="accent">trabajo</span></h2>
+      <p class="section-sub" data-i18n="stack.sub">Las herramientas que uso a diario y para qué las uso realmente.</p>
     </header>
 
     <div class="slots">
       <article class="slot reveal">
-        <span class="rarity">Principal</span>
-        <h3><span class="slot-ico" aria-hidden="true">⌗</span> Backend</h3>
-        <p>APIs REST con autenticación por sesión o JWT, integración con servicios externos y una capa de datos preparada para crecer.</p>
-        <ul class="chips"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>Java</li><li>Spring Boot</li></ul>
+        <span class="rarity" data-i18n="stack.main">Principal</span>
+        <h3><span class="slot-ico" aria-hidden="true">⌗</span> <span data-i18n="stack.backend">Backend</span></h3>
+        <p data-i18n="stack.backendText">APIs REST con autenticación por sesión o JWT, ingesta en tiempo real por WebSocket y streaming al navegador con Server-Sent Events.</p>
+        <ul class="chips"><li>Python</li><li>Flask</li><li>SQLAlchemy</li><li>Alembic</li><li>Java</li><li>Spring Boot</li></ul>
       </article>
       <article class="slot reveal d1">
-        <span class="rarity">Principal</span>
-        <h3><span class="slot-ico" aria-hidden="true">◱</span> Frontend</h3>
-        <p>Interfaces tipadas y responsivas, con componentes reutilizables, tablas pesadas que no se traban y gráficas legibles.</p>
-        <ul class="chips"><li>React 19</li><li>TypeScript</li><li>Tailwind</li><li>Vite</li><li>Recharts</li></ul>
+        <span class="rarity" data-i18n="stack.main">Principal</span>
+        <h3><span class="slot-ico" aria-hidden="true">◱</span> <span data-i18n="stack.frontend">Frontend</span></h3>
+        <p data-i18n="stack.frontendText">Interfaces tipadas y responsivas, con tablas pesadas que no se traban y gráficas que se entienden de un vistazo.</p>
+        <ul class="chips"><li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind</li><li>Recharts</li><li>Angular</li></ul>
       </article>
       <article class="slot reveal d2">
-        <span class="rarity">Soporte</span>
-        <h3><span class="slot-ico" aria-hidden="true">▤</span> Datos e infra</h3>
-        <p>Modelado relacional, migraciones versionadas y despliegue en contenedores listo para producción.</p>
-        <ul class="chips"><li>PostgreSQL</li><li>Docker</li><li>Nginx</li><li>Gunicorn</li><li>Git</li></ul>
+        <span class="rarity" data-i18n="stack.support">Soporte</span>
+        <h3><span class="slot-ico" aria-hidden="true">▤</span> <span data-i18n="stack.infra">Datos e infra</span></h3>
+        <p data-i18n="stack.infraText">Modelado relacional, migraciones versionadas y despliegue en contenedores orquestados con Kubernetes.</p>
+        <ul class="chips"><li>PostgreSQL</li><li>Docker</li><li>Kubernetes</li><li>Nginx</li><li>GitLab CI</li><li>pytest</li></ul>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============================ PROYECTOS / MISIONES ============================ -->
+<!-- ============================ PROYECTOS ============================ -->
 <section class="section" id="proyectos">
   <div class="wrap">
     <header class="section-head reveal">
-      <p class="eyebrow">// Registro de misiones</p>
-      <h2>Proyectos <span class="accent">en producción</span></h2>
-      <p class="section-sub">Plataformas internas que construyo actualmente en Atomo Gaming. Código privado, pero acá está qué resuelven y cómo están hechas.</p>
+      <p class="eyebrow" data-i18n="proj.eyebrow">// Registro de misiones</p>
+      <h2 data-i18n="proj.title">Proyectos <span class="accent">en producción</span></h2>
+      <p class="section-sub" data-i18n="proj.sub">Plataformas que construyo en Atomo Gaming. Código privado, pero acá está qué resuelven, con qué están hechas y qué escala manejan.</p>
     </header>
 
     <div class="quests">
 
-      <!-- ---------- Misión 01 · Pilar Betmarketer ---------- -->
+      <!-- ---------- Misión 01 · Zenit Integrity ---------- -->
       <article class="quest reveal">
         <div class="quest-visual">
-          <span class="stamp">En producción</span>
-          <div class="mock">
-            <div class="mock-bar"><i></i><i></i><i></i><span>plataforma_unificada</span></div>
-            <div class="mock-body col">
-              <div class="mock-search"><span class="mock-input">Buscar por cédula o ID de jugador</span><span class="mock-go" aria-hidden="true">▸</span></div>
-              <div class="mock-kpis">
-                <div><small>Balance</small><strong>$1.284</strong></div>
-                <div><small>Estado</small><strong>Activo</strong></div>
-                <div><small>GGR</small><strong>96,2%</strong></div>
-              </div>
-              <div class="mock-rows">
-                <div><b></b><em></em><u class="ok">Aprobado</u></div>
-                <div><b></b><em></em><u class="wait">Pendiente</u></div>
-                <div><b></b><em></em><u class="ok">Aprobado</u></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="quest-body">
-          <p class="quest-meta">
-            <span class="num">01</span>
-            <span class="sep" aria-hidden="true">/</span>
-            Full Stack · Plataforma interna
-            <span class="diff" title="Dificultad">
-              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
-            </span>
-          </p>
-          <h3>Plataforma Unificada de Gestión</h3>
-          <p>Centraliza en una sola herramienta lo que antes exigía saltar entre cinco sistemas:
-          consulta de jugadores, gestión de retiros a través de <strong>múltiples pasarelas de pago</strong>,
-          historial de juego y análisis de sesiones de casino con GGR y RTP. Incluye búsqueda
-          masiva por lotes, verificación documental y exportación directa a Excel.</p>
-          <p class="reward"><span class="key">Impacto</span> Reduce el tiempo de una consulta operativa de minutos a segundos</p>
-          <ul class="chips">
-            <li>Python</li><li>Flask</li><li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind</li><li>PostgreSQL</li><li>JWT</li><li>ExcelJS</li>
-          </ul>
-          <div class="quest-links">
-            <span class="private"><span aria-hidden="true">🔒</span> Código privado · Atomo Gaming</span>
-          </div>
-        </div>
-      </article>
-
-      <!-- ---------- Misión 02 · Zenit Integrity ---------- -->
-      <article class="quest reverse reveal">
-        <div class="quest-visual">
-          <span class="stamp">En producción</span>
+          <span class="stamp" data-i18n="proj.solo">Desarrollador único</span>
           <div class="mock">
             <div class="mock-bar"><i></i><i></i><i></i><span>zenit_integrity · live</span></div>
             <div class="mock-body col">
               <div class="mock-alert">
                 <span class="alert-dot" aria-hidden="true"></span>
-                <b>ALERTA · Movimiento brusco</b>
-                <span class="alert-time">hace 2 min</span>
+                <b data-i18n="proj.alertLabel">ALERTA · Movimiento brusco</b>
+                <span class="alert-time" data-i18n="proj.alertTime">hace 2 min</span>
               </div>
               <svg class="mock-line" viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
                 <polyline points="0,62 30,58 60,60 90,54 120,56 150,50 180,52 210,30 240,22 270,26 300,18"
@@ -298,7 +272,63 @@
                 <circle cx="210" cy="30" r="4" fill="#c9bfa7"/>
               </svg>
               <div class="mock-toolbar">
-                <span class="pill">1X2</span><span class="pill">Hándicap</span><span class="pill on">En vivo</span>
+                <span class="pill">1X2</span><span class="pill">Hándicap</span><span class="pill on" data-i18n="proj.live">En vivo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="quest-body">
+          <p class="quest-meta">
+            <span class="num">01</span>
+            <span class="sep" aria-hidden="true">/</span>
+            <span data-i18n="proj.p1kicker">Full Stack · Tiempo real</span>
+            <span class="diff" title="Dificultad">
+              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+            </span>
+          </p>
+          <h3>Zenit Integrity</h3>
+          <p data-i18n="proj.p1text">Monitoreo de integridad en apuestas deportivas. Lo desarrollé <strong>desde cero como único
+          desarrollador</strong>: vigila en tiempo real las cuotas de 5 casas de apuestas y detecta patrones
+          asociados a manipulación de resultados. El motor de alertas tiene <strong>8 tipos de regla
+          configurables</strong> —movimiento brusco, divergencia contra el consenso, retiro de cuota,
+          ensanchamiento de spread—, cada una con su umbral, ventana y período de enfriamiento.</p>
+
+          <ul class="metrics">
+            <li><strong>2,4M</strong><span data-i18n="proj.m1">registros de cuotas</span></li>
+            <li><strong>153K</strong><span data-i18n="proj.m2">partidos cubiertos</span></li>
+            <li><strong>211K</strong><span data-i18n="proj.m3">alertas emitidas</span></li>
+            <li><strong>1.488</strong><span data-i18n="proj.m4">días de histórico</span></li>
+          </ul>
+
+          <p class="reward"><span class="key" data-i18n="proj.rewardLabel">Detalles</span>
+            <span data-i18n="proj.p1reward">Ingesta por WebSocket · streaming con SSE · 19 migraciones versionadas con Alembic · desplegado en Kubernetes</span></p>
+          <ul class="chips">
+            <li>Python</li><li>Flask</li><li>WebSockets</li><li>SSE</li><li>React 19</li><li>TypeScript</li><li>Recharts</li><li>PostgreSQL</li><li>Alembic</li><li>Docker</li><li>Kubernetes</li><li>pytest</li>
+          </ul>
+          <div class="quest-links">
+            <span class="private"><span aria-hidden="true">🔒</span> <span data-i18n="proj.privateLabel">Código privado · Atomo Gaming</span></span>
+          </div>
+        </div>
+      </article>
+
+      <!-- ---------- Misión 02 · Zenit ---------- -->
+      <article class="quest reverse reveal">
+        <div class="quest-visual">
+          <span class="stamp" data-i18n="proj.prod">En producción</span>
+          <div class="mock">
+            <div class="mock-bar"><i></i><i></i><i></i><span>zenit · soporte</span></div>
+            <div class="mock-body col">
+              <div class="mock-search"><span class="mock-input" data-i18n="proj.searchPlaceholder">Buscar por cédula o ID de jugador</span><span class="mock-go" aria-hidden="true">▸</span></div>
+              <div class="mock-kpis">
+                <div><small data-i18n="proj.kpi1">Balance</small><strong>$1.284</strong></div>
+                <div><small data-i18n="proj.kpi2">Estado</small><strong data-i18n="proj.kpi2v">Activo</strong></div>
+                <div><small>GGR</small><strong>96,2%</strong></div>
+              </div>
+              <div class="mock-rows">
+                <div><b></b><em></em><u class="ok" data-i18n="proj.approved">Aprobado</u></div>
+                <div><b></b><em></em><u class="wait" data-i18n="proj.pending">Pendiente</u></div>
+                <div><b></b><em></em><u class="ok" data-i18n="proj.approved">Aprobado</u></div>
               </div>
             </div>
           </div>
@@ -308,25 +338,23 @@
           <p class="quest-meta">
             <span class="num">02</span>
             <span class="sep" aria-hidden="true">/</span>
-            Full Stack · Tiempo real
+            <span data-i18n="proj.p2kicker">Full Stack · Herramienta interna</span>
             <span class="diff" title="Dificultad">
-              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+              <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
             </span>
           </p>
-          <h3>Zenit Integrity</h3>
-          <p>Monitoreo de integridad en apuestas deportivas. Ingiere cuotas de múltiples casas
-          <strong>en tiempo real por WebSocket</strong>, guarda el histórico de cada movimiento y
-          dispara alertas cuando el mercado se comporta de forma anómala. El motor tiene
-          <strong>8 tipos de regla configurables</strong> — movimiento brusco, divergencia contra el
-          consenso, retiro de cuota, ensanchamiento de spread — cada una con su umbral, ventana y
-          cooldown. Incluye backfill histórico diario y un calendario de cobertura para distinguir
-          "no pasó nada" de "no lo estábamos mirando".</p>
-          <p class="reward"><span class="key">Impacto</span> Automatiza una vigilancia que antes era partido por partido, a mano</p>
+          <h3>Zenit</h3>
+          <p data-i18n="proj.p2text">La plataforma con la que el área de soporte consulta cuentas de jugadores, gestiona
+          retiros en <strong>cuatro pasarelas de pago</strong> y audita sesiones de casino con GGR y RTP.
+          La construí <strong>en dupla con otro programador</strong>. Incluye búsqueda masiva por lotes,
+          verificación documental y exportación directa a Excel.</p>
+          <p class="reward"><span class="key" data-i18n="proj.rewardLabel">Detalles</span>
+            <span data-i18n="proj.p2reward">Reemplaza el salto entre cinco sistemas por una sola consulta</span></p>
           <ul class="chips">
-            <li>Python</li><li>Flask</li><li>WebSockets</li><li>SSE</li><li>React 19</li><li>TypeScript</li><li>Recharts</li><li>PostgreSQL</li><li>Docker</li><li>pytest</li>
+            <li>Python</li><li>Flask</li><li>React 19</li><li>TypeScript</li><li>Vite</li><li>Tailwind</li><li>PostgreSQL</li><li>JWT</li><li>ExcelJS</li>
           </ul>
           <div class="quest-links">
-            <span class="private"><span aria-hidden="true">🔒</span> Código privado · Atomo Gaming</span>
+            <span class="private"><span aria-hidden="true">🔒</span> <span data-i18n="proj.privateLabel">Código privado · Atomo Gaming</span></span>
           </div>
         </div>
       </article>
@@ -334,15 +362,15 @@
       <!-- ---------- Misión 03 · Zenit Informes ---------- -->
       <article class="quest reveal">
         <div class="quest-visual">
-          <span class="stamp">En producción</span>
+          <span class="stamp" data-i18n="proj.prod">En producción</span>
           <div class="mock">
             <div class="mock-bar"><i></i><i></i><i></i><span>zenit_informes</span></div>
             <div class="mock-body col">
-              <div class="mock-tabs"><span class="tab on">Guatemala</span><span class="tab">Panamá</span></div>
+              <div class="mock-tabs"><span class="tab on">Ecuador</span><span class="tab">Panamá</span><span class="tab">Guatemala</span></div>
               <div class="mock-rows">
-                <div><b class="file">XLS</b><em></em><u class="ok">Listo</u></div>
-                <div><b class="file">XLS</b><em></em><u class="ok">Listo</u></div>
-                <div><b class="file">XLS</b><em></em><u class="wait">Generando</u></div>
+                <div><b class="file">XLS</b><em></em><u class="ok" data-i18n="proj.ready">Listo</u></div>
+                <div><b class="file">XLS</b><em></em><u class="ok" data-i18n="proj.ready">Listo</u></div>
+                <div><b class="file">XLS</b><em></em><u class="wait" data-i18n="proj.generating">Generando</u></div>
               </div>
               <div class="mock-progress"><i></i></div>
             </div>
@@ -353,75 +381,76 @@
           <p class="quest-meta">
             <span class="num">03</span>
             <span class="sep" aria-hidden="true">/</span>
-            Full Stack · Automatización
+            <span data-i18n="proj.p3kicker">Full Stack · Automatización</span>
             <span class="diff" title="Dificultad">
               <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
             </span>
           </p>
           <h3>Zenit Informes</h3>
-          <p>Automatiza los informes operativos que antes se armaban a mano en Excel. Consulta las
-          APIs internas de la operación, consolida los datos y genera los reportes ya formateados
-          — GGR, controles, incidencias, sesiones y transferencias — con soporte para
-          <strong>varias operaciones por país</strong>. Todo va dockerizado, con autenticación por sesión,
-          contraseñas con hash <code>scrypt</code> y cookies <code>HttpOnly</code>.</p>
-          <p class="reward"><span class="key">Impacto</span> Convierte horas de trabajo manual repetitivo en un clic</p>
+          <p data-i18n="proj.p3text">Consolida los informes de operación de las marcas de <strong>Ecuador, Panamá y
+          Guatemala</strong>, integrándose con <strong>tres backoffices externos</strong>. Consulta las APIs,
+          cruza los datos y entrega los reportes ya formateados —GGR, controles, incidencias, sesiones y
+          transferencias— en un clic. Dockerizado, con autenticación por sesión, contraseñas con hash
+          <code>scrypt</code> y cookies <code>HttpOnly</code>.</p>
+          <p class="reward"><span class="key" data-i18n="proj.rewardLabel">Detalles</span>
+            <span data-i18n="proj.p3reward">Convierte horas de armado manual en Excel en un proceso automático</span></p>
           <ul class="chips">
             <li>Python</li><li>Flask</li><li>pandas</li><li>React 19</li><li>TypeScript</li><li>Tailwind</li><li>PostgreSQL 16</li><li>Docker</li><li>Nginx</li><li>Gunicorn</li>
           </ul>
           <div class="quest-links">
-            <span class="private"><span aria-hidden="true">🔒</span> Código privado · Atomo Gaming</span>
+            <span class="private"><span aria-hidden="true">🔒</span> <span data-i18n="proj.privateLabel">Código privado · Atomo Gaming</span></span>
           </div>
         </div>
       </article>
 
       <!-- ---------- Misiones secundarias ---------- -->
-      <p class="side-title reveal"><span>Otras misiones</span></p>
+      <p class="side-title reveal"><span data-i18n="proj.sideTitle">Otras misiones</span></p>
 
       <div class="sides">
         <article class="side reveal">
           <span class="side-num">04</span>
-          <h4>Bot de Estadísticas · Aviator</h4>
-          <p>Registro y análisis estadístico de rondas: historial de multiplicadores, frecuencias, rachas y probabilidad por frecuencia histórica.</p>
+          <h4 data-i18n="proj.s1title">Bot de Estadísticas · Aviator</h4>
+          <p data-i18n="proj.s1text">Registro y análisis estadístico de rondas: historial de multiplicadores, frecuencias, rachas y probabilidad por frecuencia histórica.</p>
           <ul class="chips sm"><li>Python</li><li>Flask</li><li>React</li><li>Tailwind 4</li></ul>
-          <span class="private sm"><span aria-hidden="true">🔒</span> En desarrollo</span>
+          <span class="private sm"><span aria-hidden="true">🔒</span> <span data-i18n="proj.inProgress">En desarrollo</span></span>
         </article>
 
         <article class="side reveal d1">
           <span class="side-num">05</span>
-          <h4>Sistema de Gestión Corporativo</h4>
-          <p>Plataforma tipo SaaS con Spring Boot, autenticación JWT, roles ADMIN/USER, API documentada con Swagger y dashboard en React.</p>
+          <h4 data-i18n="proj.s2title">Sistema de Gestión Corporativo</h4>
+          <p data-i18n="proj.s2text">Plataforma tipo SaaS con Spring Boot, autenticación JWT, roles ADMIN/USER, API documentada con Swagger y dashboard en React.</p>
           <ul class="chips sm"><li>Java</li><li>Spring Boot</li><li>React</li><li>Docker</li></ul>
           <a class="lnk" href="https://github.com/SOG77/Gestion-Usuarios" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
         <article class="side reveal d2">
           <span class="side-num">06</span>
-          <h4>Ceibal — Panel de Administración</h4>
-          <p>Panel de gestión educativa: CRUD de usuarios, métricas de reportes, exportación a CSV/JSON, modo oscuro y atajos de teclado.</p>
+          <h4 data-i18n="proj.s3title">Ceibal — Panel de Administración</h4>
+          <p data-i18n="proj.s3text">Panel de gestión educativa: CRUD de usuarios, métricas de reportes, exportación a CSV/JSON, modo oscuro y atajos de teclado.</p>
           <ul class="chips sm"><li>React</li><li>JavaScript</li><li>CSS3</li></ul>
           <a class="lnk" href="https://github.com/SOG77/Ceibal-demo" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
         <article class="side reveal">
           <span class="side-num">07</span>
-          <h4>Sistema con Base de Datos</h4>
-          <p>Aplicación Java conectada a base de datos relacional: modelado de entidades, consultas SQL y persistencia desde código.</p>
+          <h4 data-i18n="proj.s4title">Sistema con Base de Datos</h4>
+          <p data-i18n="proj.s4text">Aplicación Java conectada a base de datos relacional: modelado de entidades, consultas SQL y persistencia desde código.</p>
           <ul class="chips sm"><li>Java</li><li>SQL</li><li>JDBC</li></ul>
           <a class="lnk" href="https://github.com/SOG77/baseDatosParcial" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
         <article class="side reveal d1">
           <span class="side-num">08</span>
-          <h4>Diseño de Software · Patrones</h4>
-          <p>Proyecto en Java enfocado en arquitectura y patrones de diseño: separación de responsabilidades y código mantenible.</p>
+          <h4 data-i18n="proj.s5title">Diseño de Software · Patrones</h4>
+          <p data-i18n="proj.s5text">Proyecto en Java enfocado en arquitectura y patrones de diseño: separación de responsabilidades y código mantenible.</p>
           <ul class="chips sm"><li>Java</li><li>POO</li><li>Patrones</li></ul>
           <a class="lnk" href="https://github.com/SOG77/parcial2" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
 
         <article class="side reveal d2">
           <span class="side-num">09</span>
-          <h4>Propuesta Web</h4>
-          <p>Sitio construido con JavaScript, HTML y CSS puros, cuidando la estructura semántica y la presentación.</p>
+          <h4 data-i18n="proj.s6title">Propuesta Web</h4>
+          <p data-i18n="proj.s6text">Sitio construido con JavaScript, HTML y CSS puros, cuidando la estructura semántica y la presentación.</p>
           <ul class="chips sm"><li>JavaScript</li><li>HTML</li><li>CSS</li></ul>
           <a class="lnk" href="https://github.com/SOG77/propuesta" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a>
         </article>
@@ -430,46 +459,137 @@
   </div>
 </section>
 
+<!-- ============================ TRAYECTORIA ============================ -->
+<section class="section journey" id="trayectoria">
+  <div class="wrap">
+    <header class="section-head reveal">
+      <p class="eyebrow" data-i18n="jr.eyebrow">// Registro de partida</p>
+      <h2 data-i18n="jr.title">Cómo llegué <span class="accent">hasta acá</span></h2>
+      <p class="section-sub" data-i18n="jr.sub">De reparar impresoras a construir plataformas de tiempo real. Cada nivel enseñó algo que uso hoy.</p>
+    </header>
+
+    <ol class="timeline">
+      <li class="tl reveal">
+        <span class="tl-date" data-i18n="jr.d1">Feb 2026 — <b>Hoy</b></span>
+        <div class="tl-body">
+          <h3>Atomo Gaming</h3>
+          <p class="tl-role" data-i18n="jr.r1">Desarrollador Full-Stack · Armenia, Quindío</p>
+          <p data-i18n="jr.t1">Construyo las plataformas internas de la operación: Zenit Integrity de punta a punta como
+          único desarrollador, y Zenit y Zenit Informes en equipo. Diseño de esquemas en PostgreSQL,
+          contenedores Docker y despliegue en Kubernetes.</p>
+          <ul class="chips sm"><li>React 19</li><li>TypeScript</li><li>Flask</li><li>PostgreSQL</li><li>Docker</li><li>Kubernetes</li></ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <span class="tl-date" data-i18n="jr.d2">Ene 2025 — Ene 2026</span>
+        <div class="tl-body">
+          <h3>Mela</h3>
+          <p class="tl-role" data-i18n="jr.r2">Programador de Inteligencia Artificial · Remoto</p>
+          <p data-i18n="jr.t2">Automaticé chatbots de atención para 5 empresas con plataformas low-code sobre Microsoft
+          Azure, y analicé datos de ventas para los informes de seguimiento comercial del área.</p>
+          <ul class="chips sm"><li>Microsoft Azure</li><li>Low-code</li><li data-i18n="jr.chip1">Análisis de datos</li></ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <span class="tl-date" data-i18n="jr.d3">Jun 2024 — Ene 2025</span>
+        <div class="tl-body">
+          <h3>American School Way</h3>
+          <p class="tl-role" data-i18n="jr.r3">Coordinador de Servicios y Soporte Postventa</p>
+          <p data-i18n="jr.t3">Gestioné los servicios de dos sedes y atendí el soporte postventa de los estudiantes,
+          resolviendo incidencias académicas y administrativas.</p>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <span class="tl-date" data-i18n="jr.d4">Abr 2024 — Jul 2024</span>
+        <div class="tl-body">
+          <h3>Careto Digital</h3>
+          <p class="tl-role" data-i18n="jr.r4">Desarrollador Web y Analista de Marketing Digital</p>
+          <p data-i18n="jr.t4">Desarrollé blogs y páginas web en HTML con una producción sostenida de 3 por día, y medí
+          el desempeño de campañas publicitarias con Google Analytics.</p>
+          <ul class="chips sm"><li>HTML</li><li>CSS</li><li>Google Analytics</li></ul>
+        </div>
+      </li>
+
+      <li class="tl reveal">
+        <span class="tl-date" data-i18n="jr.d5">Dic 2023 — Abr 2024</span>
+        <div class="tl-body">
+          <h3>Computintas</h3>
+          <p class="tl-role" data-i18n="jr.r5">Técnico de Soporte en Cómputo</p>
+          <p data-i18n="jr.t5">Diagnostiqué y reparé impresoras y equipos de cómputo, atendiendo entre 3 y 4 equipos por día.</p>
+        </div>
+      </li>
+
+      <li class="tl edu reveal">
+        <span class="tl-date">2018 — 2024</span>
+        <div class="tl-body">
+          <h3>Universidad EAM</h3>
+          <p class="tl-role" data-i18n="jr.r6">Ingeniería de Software · Armenia, Quindío</p>
+          <p data-i18n="jr.t6">Cursé 8 de 10 semestres. La base de fundamentos —algoritmos, estructuras de datos,
+          bases de datos y patrones de diseño— es la que sostiene todo lo que construyo hoy.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div class="certs reveal">
+      <p class="key" data-i18n="jr.certs">Certificaciones</p>
+      <ul class="chips">
+        <li data-i18n="jr.c1">Programación de IA · 2025</li>
+        <li data-i18n="jr.c2">Facebook Ads · 2022</li>
+        <li data-i18n="jr.c3">Inglés B1 · 2018</li>
+        <li data-i18n="jr.c4">Diseño e Integración Multimedia · 2017</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ PERFIL ============================ -->
 <section class="section profile" id="perfil">
   <div class="wrap profile-grid">
     <div class="profile-copy reveal">
-      <p class="eyebrow">// Ficha de personaje</p>
-      <h2>Aprendo rápido y <span class="accent">entrego completo</span></h2>
-      <p>Soy Sebastian, desarrollador Full Stack en <strong>Atomo Gaming</strong>. Construyo las
-      plataformas internas que usa la operación todos los días: gestión de jugadores, monitoreo
-      de integridad deportiva y automatización de informes. No son demos — son sistemas en
-      producción con usuarios reales esperando que funcionen.</p>
-      <p>Trabajo con Python y Flask en el backend, React y TypeScript en el frontend, y PostgreSQL
-      y Docker para que todo sea reproducible. Vengo de una base sólida en Java y Spring Boot.
-      Escribo código legible, documento lo que hago y entrego en iteraciones pequeñas para que
-      siempre haya algo funcionando.</p>
+      <p class="eyebrow" data-i18n="prof.eyebrow">// Ficha de personaje</p>
+      <h2 data-i18n="prof.title">Aprendo rápido y <span class="accent">entrego completo</span></h2>
+      <p data-i18n="prof.p1">Soy Sebastian, desarrollador Full Stack en Atomo Gaming. Me interesa el punto donde una
+      idea se convierte en algo que la gente puede usar sin pensarlo. No me quedo solo en la interfaz
+      ni solo en el servidor: prefiero entender el problema entero y responder por el resultado.</p>
+      <p data-i18n="prof.p2">Llegué al software por un camino poco recto —soporte técnico, marketing, coordinación— y
+      eso me dejó algo útil: sé escuchar a quien va a usar la herramienta. Hoy trabajo con Python y
+      Flask en el backend, React y TypeScript en el frontend, y PostgreSQL, Docker y Kubernetes para
+      que todo sea reproducible y despliegue sin sorpresas.</p>
 
       <ul class="perks">
-        <li><b>Código claro</b><span>Legible antes que ingenioso. Que el siguiente lo entienda.</span></li>
-        <li><b>Entrega iterativa</b><span>Versiones que funcionan desde el primer día.</span></li>
-        <li><b>Automatizar lo repetitivo</b><span>Si alguien lo hace a mano cada semana, debería hacerlo el sistema.</span></li>
+        <li><b data-i18n="prof.k1">Código claro</b><span data-i18n="prof.v1">Legible antes que ingenioso. Que el siguiente lo entienda.</span></li>
+        <li><b data-i18n="prof.k2">Entrega iterativa</b><span data-i18n="prof.v2">Versiones que funcionan desde el primer día.</span></li>
+        <li><b data-i18n="prof.k3">Automatizar lo repetitivo</b><span data-i18n="prof.v3">Si alguien lo hace a mano cada semana, debería hacerlo el sistema.</span></li>
       </ul>
     </div>
 
     <aside class="profile-side">
       <div class="panel reveal">
-        <h3><span aria-hidden="true">▦</span> Atributos</h3>
+        <h3><span aria-hidden="true">▦</span> <span data-i18n="prof.attrs">Atributos</span></h3>
         <div class="skill"><span>Python / Flask</span><div class="xp"><i data-level="88"></i></div></div>
         <div class="skill"><span>React / TypeScript</span><div class="xp"><i data-level="85"></i></div></div>
-        <div class="skill"><span>SQL / PostgreSQL</span><div class="xp"><i data-level="80"></i></div></div>
-        <div class="skill"><span>Java / Spring Boot</span><div class="xp"><i data-level="78"></i></div></div>
-        <div class="skill"><span>Docker / Git</span><div class="xp"><i data-level="72"></i></div></div>
+        <div class="skill"><span>SQL / PostgreSQL</span><div class="xp"><i data-level="82"></i></div></div>
+        <div class="skill"><span>Docker / Kubernetes</span><div class="xp"><i data-level="74"></i></div></div>
+        <div class="skill"><span>Java / Spring Boot</span><div class="xp"><i data-level="70"></i></div></div>
       </div>
 
       <div class="panel reveal d1">
-        <h3><span aria-hidden="true">▶</span> Ruta de juego</h3>
+        <h3><span aria-hidden="true">▶</span> <span data-i18n="prof.route">Ruta de juego</span></h3>
         <ol class="steps">
-          <li><b>Entender</b> el problema y a quién le duele.</li>
-          <li><b>Diseñar</b> los datos y el flujo antes de escribir código.</li>
-          <li><b>Construir</b> en iteraciones pequeñas y probables.</li>
-          <li><b>Documentar</b> y entregar listo para mantener.</li>
+          <li><b data-i18n="prof.s1b">Entender</b> <span data-i18n="prof.s1t">el problema y a quién le duele.</span></li>
+          <li><b data-i18n="prof.s2b">Diseñar</b> <span data-i18n="prof.s2t">los datos y el flujo antes de escribir código.</span></li>
+          <li><b data-i18n="prof.s3b">Construir</b> <span data-i18n="prof.s3t">en iteraciones pequeñas y probables.</span></li>
+          <li><b data-i18n="prof.s4b">Documentar</b> <span data-i18n="prof.s4t">y entregar listo para mantener.</span></li>
         </ol>
+      </div>
+
+      <div class="panel reveal d2">
+        <h3><span aria-hidden="true">◈</span> <span data-i18n="prof.langs">Idiomas</span></h3>
+        <div class="skill"><span data-i18n="prof.es">Español · nativo</span><div class="xp"><i data-level="100"></i></div></div>
+        <div class="skill"><span data-i18n="prof.en">Inglés · intermedio (B1)</span><div class="xp"><i data-level="60"></i></div></div>
       </div>
     </aside>
   </div>
@@ -479,15 +599,20 @@
 <section class="section contact" id="contacto">
   <div class="glowfield soft" aria-hidden="true"><span></span></div>
   <div class="wrap contact-inner reveal">
-    <p class="eyebrow">// Modo multijugador</p>
-    <h2>¿Tienes un proyecto<br><span class="accent">en mente?</span></h2>
-    <p class="section-sub center">Cuéntame qué necesitas construir. Respondo rápido y sin vueltas.</p>
+    <p class="eyebrow" data-i18n="ct.eyebrow">// Modo multijugador</p>
+    <h2 data-i18n="ct.title">¿Tienes un proyecto<br><span class="accent">en mente?</span></h2>
+    <p class="section-sub center" data-i18n="ct.sub">Cuéntame qué necesitas construir. Respondo rápido y sin vueltas.</p>
 
     <div class="contact-cards">
       <a class="ccard" href="https://wa.me/573194384063" target="_blank" rel="noopener">
         <span class="ccard-ico" aria-hidden="true">✆</span>
         <b>WhatsApp</b>
         <small>+57 319 438 4063</small>
+      </a>
+      <a class="ccard" href="mailto:sebasospinag@gmail.com">
+        <span class="ccard-ico" aria-hidden="true">@</span>
+        <b data-i18n="ct.email">Correo</b>
+        <small>sebasospinag@gmail.com</small>
       </a>
       <a class="ccard" href="https://www.linkedin.com/in/sebasti%C3%A1n-ospina-guevara-773560245" target="_blank" rel="noopener">
         <span class="ccard-ico" aria-hidden="true">in</span>
@@ -501,9 +626,14 @@
       </a>
     </div>
 
-    <a class="btn btn-primary big" href="https://wa.me/573194384063" target="_blank" rel="noopener">
-      <span class="btn-ico" aria-hidden="true">▶</span> Escríbeme por WhatsApp
-    </a>
+    <div class="contact-actions">
+      <a class="btn btn-primary big" href="https://wa.me/573194384063" target="_blank" rel="noopener">
+        <span class="btn-ico" aria-hidden="true">▶</span> <span data-i18n="ct.cta">Escríbeme por WhatsApp</span>
+      </a>
+      <a class="btn btn-ghost big" href="cv-sebastian-ospina-es.pdf" id="cvLink2" download>
+        <span class="btn-ico" aria-hidden="true">⇩</span> <span data-i18n="hero.ctaCv">Descargar CV</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -518,15 +648,16 @@
       </span>
       <span class="logo-text">SOG<span class="accent">77</span></span>
     </a>
-    <p>Diseñado y programado por Sebastian Ospina · <span id="year"></span></p>
+    <p><span data-i18n="ft.made">Diseñado y programado por Sebastian Ospina</span> · <span id="year"></span></p>
     <div class="footer-links">
       <a href="https://github.com/SOG77" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sebasti%C3%A1n-ospina-guevara-773560245" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="#inicio">Volver arriba ↑</a>
+      <a href="#inicio" data-i18n="ft.top">Volver arriba ↑</a>
     </div>
   </div>
 </footer>
 
+<script src="i18n.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

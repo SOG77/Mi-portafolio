@@ -7,6 +7,67 @@
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ============================================================
+     IDIOMA — ES / EN
+     El español vive en el HTML; el inglés en i18n.js.
+     Orden de prioridad: ?lang= → lo guardado → idioma del navegador.
+     ============================================================ */
+  var DICT = window.I18N || { es: {}, en: {} };
+  var lang = 'es';
+
+  function detectLang() {
+    var fromUrl = new URLSearchParams(window.location.search).get('lang');
+    if (fromUrl === 'en' || fromUrl === 'es') return fromUrl;
+
+    try {
+      var saved = localStorage.getItem('sog77-lang');
+      if (saved === 'en' || saved === 'es') return saved;
+    } catch (e) { /* modo privado o cookies bloqueadas */ }
+
+    return (navigator.language || 'es').toLowerCase().indexOf('es') === 0 ? 'es' : 'en';
+  }
+
+  function applyLang(next) {
+    var dict = DICT[next];
+    if (!dict) return;
+    lang = next;
+
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var value = dict[el.getAttribute('data-i18n')];
+      if (typeof value === 'string') el.innerHTML = value;
+    });
+
+    document.querySelectorAll('[data-i18n-content]').forEach(function (el) {
+      var value = dict[el.getAttribute('data-i18n-content')];
+      if (typeof value === 'string') el.setAttribute('content', value);
+    });
+
+    document.documentElement.lang = next;
+    if (dict['meta.title']) document.title = dict['meta.title'];
+
+    // el CV cambia de idioma junto con la página
+    ['cvLink', 'cvLink2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && dict._cv) el.setAttribute('href', dict._cv);
+    });
+
+    document.querySelectorAll('.lang button[data-lang]').forEach(function (btn) {
+      var on = btn.getAttribute('data-lang') === next;
+      btn.classList.toggle('on', on);
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+
+    try { localStorage.setItem('sog77-lang', next); } catch (e) { /* sin persistencia */ }
+
+    restartTyping();
+  }
+
+  document.querySelectorAll('.lang button[data-lang]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      applyLang(btn.getAttribute('data-lang'));
+    });
+  });
+
   /* ---------- Año automático en el footer ---------- */
   var year = document.getElementById('year');
   if (year) year.textContent = String(new Date().getFullYear());
@@ -36,7 +97,7 @@
     navLinks.classList.remove('open');
     if (burger) {
       burger.setAttribute('aria-expanded', 'false');
-      burger.setAttribute('aria-label', 'Abrir menú');
+      burger.setAttribute('aria-label', lang === 'en' ? 'Open menu' : 'Abrir menú');
     }
   }
 
@@ -44,7 +105,9 @@
     burger.addEventListener('click', function () {
       var open = navLinks.classList.toggle('open');
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      burger.setAttribute('aria-label',
+        open ? (lang === 'en' ? 'Close menu' : 'Cerrar menú')
+             : (lang === 'en' ? 'Open menu' : 'Abrir menú'));
     });
     navLinks.addEventListener('click', function (e) {
       if (e.target.tagName === 'A') closeMenu();
@@ -141,39 +204,41 @@
 
   /* ---------- Máquina de escribir en la línea de CLASE ---------- */
   var typed = document.getElementById('typed');
-  var ROLES = [
-    'Full Stack Developer',
-    'Backend · Python + Flask',
-    'Frontend · React + TypeScript',
-    'Automatiza lo repetitivo'
-  ];
+  var typingTimer = null;
+  var typingToken = 0;
 
-  if (typed) {
-    if (reduceMotion) {
-      typed.textContent = ROLES[0];
-    } else {
-      var roleIndex = 0;
-      var charIndex = 0;
-      var deleting = false;
+  function restartTyping() {
+    if (!typed) return;
+    var roles = (DICT[lang] && DICT[lang]._roles) || ['Full Stack Developer'];
 
-      (function typeLoop() {
-        var role = ROLES[roleIndex];
-        charIndex += deleting ? -1 : 1;
-        typed.textContent = role.slice(0, charIndex);
+    clearTimeout(typingTimer);
+    typingToken++;
+    var myToken = typingToken;
 
-        var delay = deleting ? 34 : 66;
+    if (reduceMotion) { typed.textContent = roles[0]; return; }
 
-        if (!deleting && charIndex === role.length) {
-          deleting = true;
-          delay = 2000;
-        } else if (deleting && charIndex === 0) {
-          deleting = false;
-          roleIndex = (roleIndex + 1) % ROLES.length;
-          delay = 300;
-        }
-        setTimeout(typeLoop, delay);
-      })();
-    }
+    var roleIndex = 0, charIndex = 0, deleting = false;
+    typed.textContent = '';
+
+    (function loop() {
+      if (myToken !== typingToken) return;   // se cambió de idioma: este ciclo muere
+
+      var role = roles[roleIndex];
+      charIndex += deleting ? -1 : 1;
+      typed.textContent = role.slice(0, charIndex);
+
+      var delay = deleting ? 34 : 66;
+
+      if (!deleting && charIndex === role.length) {
+        deleting = true;
+        delay = 2000;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        delay = 300;
+      }
+      typingTimer = setTimeout(loop, delay);
+    })();
   }
 
   /* ---------- Easter egg: código Konami ---------- */
@@ -181,10 +246,9 @@
   var streak = 0;
 
   document.addEventListener('keydown', function (e) {
-    var expected = KONAMI[streak];
     var pressed = e.key.length === 1 ? e.key.toLowerCase() : e.key;
 
-    if (pressed === expected) {
+    if (pressed === KONAMI[streak]) {
       streak++;
       if (streak === KONAMI.length) {
         streak = 0;
@@ -198,32 +262,24 @@
   function showAchievement() {
     if (document.querySelector('.achievement')) return;
 
+    var copy = lang === 'en'
+      ? { key: 'ACHIEVEMENT UNLOCKED', title: 'Konami Code',
+          sub: 'You know how to look. That says a lot. Get in touch.' }
+      : { key: 'LOGRO DESBLOQUEADO', title: 'Código Konami',
+          sub: 'Sabes buscar. Eso ya dice mucho. Escríbeme.' };
+
     var box = document.createElement('div');
     box.className = 'achievement';
     box.setAttribute('role', 'status');
     box.innerHTML =
-      '<span class="toast-key">LOGRO DESBLOQUEADO</span>' +
-      '<b>Código Konami</b>' +
-      '<small>Sabes buscar. Eso ya dice mucho. Escríbeme.</small>';
-
-    Object.assign(box.style, {
-      position: 'fixed',
-      left: '50%',
-      bottom: '32px',
-      transform: 'translateX(-50%)',
-      zIndex: '400',
-      display: 'grid',
-      gap: '4px',
-      padding: '16px 22px',
-      border: '1px solid #34343a',
-      background: 'rgba(20,20,22,.97)',
-      boxShadow: '6px 6px 0 rgba(0,0,0,.5)',
-      textAlign: 'center'
-    });
-    box.querySelector('small').style.cssText =
-      'font-family:"JetBrains Mono",monospace;font-size:11px;color:#9a978f';
+      '<span class="toast-key">' + copy.key + '</span>' +
+      '<b>' + copy.title + '</b>' +
+      '<small>' + copy.sub + '</small>';
 
     document.body.appendChild(box);
     setTimeout(function () { box.remove(); }, 5200);
   }
+
+  /* ---------- Arranque ---------- */
+  applyLang(detectLang());
 })();
