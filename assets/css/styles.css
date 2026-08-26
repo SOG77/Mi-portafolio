@@ -391,6 +391,14 @@ code{
   transition:transform .3s ease;
 }
 .quest:hover .shot{transform:translate(-3px,-3px)}
+.shot-pair{display:grid;grid-template-columns:225px 1fr;gap:14px;align-items:stretch;width:100%}
+.brand{
+  width:100%;height:100%;object-fit:cover;display:block;
+  border:1px solid var(--line-2);box-shadow:8px 8px 0 rgba(0,0,0,.5);
+  transition:transform .3s ease;
+}
+.quest:hover .brand{transform:translate(-3px,-3px)}
+.shot-pair .mock{max-width:none;width:100%;align-self:stretch}
 .shot-note{
   font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--dim);text-align:center;
@@ -684,6 +692,8 @@ code{
   .ticker-track span{font-size:15px}
   .quest-visual{padding:24px 18px;min-height:auto}
   .quest-body{padding:24px 20px}
+  .shot-pair{grid-template-columns:1fr;gap:10px}
+  .brand{aspect-ratio:16/7;height:auto}
   .quest.wide .quest-visual{padding:18px 12px}
   .quest.wide .quest-body{padding:24px 20px}
   .shot-note{font-size:8.5px;letter-spacing:.06em}

@@ -36,11 +36,20 @@ GitHub renderiza el `README.md` en la portada del repositorio.
 
 ### Capturas de los proyectos
 
-`assets/img/proyectos/` contiene capturas reales de Zenit Integrity y Zenit
-Informes. **Los datos sensibles están difuminados**: nombres de partidos, casas
-de apuestas, marcas y todas las cifras financieras. Al reemplazarlas, revisa que
-no quede visible ningún dato de jugadores, cifras de operación ni marcas de
-clientes.
+`assets/img/proyectos/` contiene dos imágenes por proyecto:
+
+- `*-marca.png` — el panel de marca del login de cada plataforma. No tiene
+  ningún dato, solo el logo.
+- `zenit-integrity.png` y `zenit-informes.png` — capturas reales de la
+  aplicación. **Los datos sensibles están difuminados**: nombres de partidos,
+  casas de apuestas, marcas de clientes y todas las cifras financieras.
+
+Zenit no tiene captura de su interfaz: la pantalla real muestra cuentas de
+jugadores con cédula, teléfono, correo y saldo. Usa un mockup en CSS y lo dice
+abiertamente bajo la imagen.
+
+Al reemplazar cualquier captura, revisa que no quede visible ningún dato de
+jugadores, cifra de operación ni marca de cliente.
 
 ---
 
