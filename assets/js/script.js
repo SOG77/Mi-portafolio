@@ -37,6 +37,11 @@
       if (typeof value === 'string') el.innerHTML = value;
     });
 
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var value = dict[el.getAttribute('data-i18n-alt')];
+      if (typeof value === 'string') el.setAttribute('alt', value);
+    });
+
     document.querySelectorAll('[data-i18n-content]').forEach(function (el) {
       var value = dict[el.getAttribute('data-i18n-content')];
       if (typeof value === 'string') el.setAttribute('content', value);

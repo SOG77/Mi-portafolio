@@ -23,6 +23,7 @@ Mi-portafolio/
     ├── css/styles.css  Estilos completos
     ├── js/script.js    Idioma, menú, reveal, contadores, typewriter, Konami
     ├── js/i18n.js      Diccionario ES/EN
+    ├── img/proyectos/  Capturas reales de las plataformas (censuradas)
     ├── img/favicon.svg Icono de la pestaña
     ├── img/og.png      Vista previa al compartir (la que leen LinkedIn y WhatsApp)
     ├── img/og.svg      Fuente editable de og.png
@@ -32,6 +33,16 @@ Mi-portafolio/
 Los seis archivos de la raíz **tienen que quedarse ahí**: GitHub Pages busca
 `index.html` y `404.html` en la raíz, los buscadores piden `/robots.txt`, y
 GitHub renderiza el `README.md` en la portada del repositorio.
+
+### Capturas de los proyectos
+
+`assets/img/proyectos/` contiene capturas reales de Zenit Integrity y Zenit
+Informes. **Los datos sensibles están difuminados**: nombres de partidos, casas
+de apuestas, marcas y todas las cifras financieras. Al reemplazarlas, revisa que
+no quede visible ningún dato de jugadores, cifras de operación ni marcas de
+clientes.
+
+---
 
 ### Regenerar `og.png`
 
