@@ -16,7 +16,7 @@
   /* texto */
   --text:#e9e7e2;
   --muted:#9a978f;
-  --dim:#6b6862;
+  --dim:#85827a;
 
   /* acentos neutros */
   --sand:#c9bfa7;      /* arena — acento principal */
@@ -113,7 +113,7 @@ code{
 }
 .hud-links a:hover{color:var(--text);background:var(--panel)}
 .hud-links a.active{color:var(--sand)}
-.hud-links a.active::before{content:"▸";position:absolute;left:2px;font-size:9px;color:var(--sand)}
+.hud-links a.active::before{content:"▸";position:absolute;left:4px;top:50%;transform:translateY(-50%);font-size:8px;line-height:1;color:var(--sand)}
 .hud-cta,.hud-links a.hud-cta{
   margin-left:10px;color:#0b0b0c;background:var(--sand);font-weight:700;padding:9px 18px;
 }
@@ -166,10 +166,10 @@ code{
   color:transparent;-webkit-text-stroke:1.5px var(--sand);
   text-shadow:4px 4px 0 rgba(201,191,167,.10);
 }
-.class-line{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:22px}
-.class-line .key{border-left:2px solid var(--sand);padding-left:9px}
-.typed{font-family:var(--display);font-weight:600;font-size:19px;color:var(--bone);letter-spacing:.04em;text-transform:uppercase}
-.caret{display:inline-block;width:9px;height:17px;background:var(--sand);margin-left:-6px;animation:blink 1s steps(2) infinite}
+.class-line{margin-bottom:22px}
+.class-line .key{display:inline-block;vertical-align:middle;margin-right:11px;border-left:2px solid var(--sand);padding-left:9px}
+.typed{font-family:var(--display);font-weight:600;font-size:19px;color:var(--bone);letter-spacing:.04em;text-transform:uppercase;vertical-align:middle}
+.caret{display:inline-block;vertical-align:middle;width:9px;height:17px;background:var(--sand);margin-left:3px;animation:blink 1s steps(2) infinite}
 @keyframes blink{50%{opacity:0}}
 
 .lead{max-width:540px;color:var(--muted);font-size:16.5px;margin-bottom:32px}
@@ -446,7 +446,7 @@ code{
 .quest-body h3{font-size:clamp(1.35rem,2.5vw,1.85rem);text-transform:uppercase;letter-spacing:.01em}
 .quest-body>p{color:var(--muted);font-size:14.5px}
 .reward{
-  display:flex;gap:10px;flex-wrap:wrap;align-items:baseline;
+  display:flex;flex-direction:column;gap:4px;
   border-left:2px solid var(--sand);padding-left:12px;font-size:13px;color:#b3afa6;
 }
 .quest-links{margin-top:6px}
@@ -571,14 +571,18 @@ code{
 
   .hero{padding:105px 0 80px;min-height:auto}
   .hero h1{font-size:clamp(2.4rem,11vw,3.4rem)}
+  .class-line .key{display:block;margin:0 0 9px}
+  .typed{font-size:15.5px}
+  .caret{width:8px;height:14px}
   .lead{font-size:15.5px}
-  .hud-stats{flex-wrap:wrap}
-  .hud-stats li{min-width:33%;border-bottom:1px solid var(--line)}
+  .hud-stats li{padding:12px 12px}
+  .hud-stats li .key{font-size:9.5px;min-height:2.4em;display:block}
+  .hero-visual{margin-bottom:48px}
   .btn{padding:13px 22px;font-size:13.5px}
   .toast{padding:9px 12px}
   .toast b{font-size:12px}
   .t1{top:-18px;right:-8px}
-  .t2{bottom:-18px;left:-8px}
+  .t2{bottom:-40px;left:0}
   .scroll-hint{display:none}
   .card-body{padding:20px 18px}
   .avatar{width:74px;height:74px}
