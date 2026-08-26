@@ -10,19 +10,34 @@ consola retro / HUD de videojuego, publicado automáticamente en GitHub Pages.
 
 ## Estructura
 
-| Archivo | Qué es |
-|---|---|
-| `index.html` | Todo el contenido (hero, inventario, misiones, perfil, contacto) |
-| `styles.css` | Estilos completos: paleta neutra, responsive y accesible |
-| `i18n.js` | Diccionario ES/EN. Cada clave corresponde a un `data-i18n` del HTML |
-| `script.js` | Idioma, menú móvil, reveal, contadores, barras de XP, typewriter, Konami |
-| `cv-sebastian-ospina-es.pdf` / `-en.pdf` | Hoja de vida en ambos idiomas |
-| `favicon.svg` | Icono de la pestaña (pixel art) |
-| `og.svg` | Imagen de vista previa al compartir el enlace |
-| `404.html` | Pantalla "GAME OVER" con el mismo diseño |
-| `.nojekyll` | Evita que GitHub Pages procese el sitio con Jekyll |
-| `robots.txt` / `sitemap.xml` | SEO básico |
-| `.github/workflows/deploy.yml` | Despliegue automático a GitHub Pages |
+```
+Mi-portafolio/
+├── index.html          Todo el contenido del sitio
+├── 404.html            Pantalla GAME OVER
+├── robots.txt          SEO
+├── sitemap.xml         SEO
+├── .nojekyll           Evita que Pages procese con Jekyll
+├── README.md           Este archivo
+├── .github/workflows/  Despliegue automático a GitHub Pages
+└── assets/
+    ├── css/styles.css  Estilos completos
+    ├── js/script.js    Idioma, menú, reveal, contadores, typewriter, Konami
+    ├── js/i18n.js      Diccionario ES/EN
+    ├── img/favicon.svg Icono de la pestaña
+    ├── img/og.png      Vista previa al compartir (la que leen LinkedIn y WhatsApp)
+    ├── img/og.svg      Fuente editable de og.png
+    └── docs/           Hoja de vida en ES y EN
+```
+
+Los seis archivos de la raíz **tienen que quedarse ahí**: GitHub Pages busca
+`index.html` y `404.html` en la raíz, los buscadores piden `/robots.txt`, y
+GitHub renderiza el `README.md` en la portada del repositorio.
+
+### Regenerar `og.png`
+
+`og.png` se genera desde `og.svg` (los formatos SVG no se ven en las vistas
+previas de LinkedIn ni WhatsApp). Si editas el SVG, vuelve a exportarlo a
+1200×630 px con cualquier herramienta y reemplaza el PNG.
 
 ---
 

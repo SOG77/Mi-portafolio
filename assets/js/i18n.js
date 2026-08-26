@@ -152,7 +152,7 @@ window.I18N = {
     'ft.top': 'Volver arriba ↑',
 
     _roles: ['Full Stack Developer', 'Backend · Python + Flask', 'Frontend · React + TypeScript', 'Automatiza lo repetitivo'],
-    _cv: 'cv-sebastian-ospina-es.pdf'
+    _cv: 'assets/docs/cv-sebastian-ospina-es.pdf'
   },
 
   en: {
@@ -302,6 +302,6 @@ window.I18N = {
     'ft.top': 'Back to top ↑',
 
     _roles: ['Full Stack Developer', 'Backend · Python + Flask', 'Frontend · React + TypeScript', 'Automates the repetitive'],
-    _cv: 'cv-sebastian-ospina-en.pdf'
+    _cv: 'assets/docs/cv-sebastian-ospina-en.pdf'
   }
 };
